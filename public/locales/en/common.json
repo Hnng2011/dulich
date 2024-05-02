@@ -1,0 +1,11 @@
+{
+    "header": {
+        "title": "Acme Inc",
+        "navigate": {
+            "home": "Home",
+            "about": "About",
+            "price" : "Price",
+            "contact": "Contact"
+        }
+    }
+}

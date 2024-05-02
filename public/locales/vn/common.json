@@ -1,0 +1,11 @@
+{
+    "header": {
+        "title": "Acme Inc",
+        "navigate": {
+            "home": "Trang chủ",
+            "about": "Về chúng tôi",
+            "price" : "Bảng giá",
+            "contact": "Liên hệ"
+        }
+    }
+}
