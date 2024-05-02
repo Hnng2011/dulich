@@ -70,25 +70,19 @@ export default function Header() {
                     </Link>
                     <nav className="hidden md:flex items-center gap-6 ">
                         <Link
-                            className="nav-item px-2"
-                            href="#"
+                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
+                            href="/"
                         >
                             {t?.header?.navigate?.home}
                         </Link>
                         <Link
-                            className="nav-item  px-2"
-                            href="#"
+                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
+                            href="about"
                         >
                             {t?.header?.navigate?.about}
                         </Link>
                         <Link
-                            className="nav-item  px-2"
-                            href="#"
-                        >
-                            {t?.header?.navigate?.price}
-                        </Link>
-                        <Link
-                            className="nav-item  px-2"
+                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
                             href="#"
                         >
                             {t?.header?.navigate?.contact}

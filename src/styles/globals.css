@@ -112,3 +112,7 @@ body {
     width: 100%;
   }
 }
+
+.flex-center {
+  @apply flex items-center justify-between;
+}
