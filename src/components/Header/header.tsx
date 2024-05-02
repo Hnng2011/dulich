@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link"
-import { SVGProps, useCallback, useEffect, useRef, useState } from "react";
+import { SVGProps, useCallback, useState } from "react";
 import {
     Select,
     SelectContent,
@@ -10,30 +10,31 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { useTranslation, useLanguage } from "@/context/language_provider"
+import useScroll from "@/hooks/use-scroll";
 import './styles.css'
 
 
 export default function Header() {
+    const process = useScroll();
     const { language, updateLanguage } = useLanguage();
     const [lang, setLang] = useState<string>(language);
     const t = useTranslation();
-    const headerRef = useRef(null);
 
     const handleValueChange = useCallback((value: string) => {
         setLang(value);
         updateLanguage(value);
     }, []);
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            console.log('scrolling');
-        });
-
-    }, [headerRef]);
-
     return (
         <>
-            <div className="bg-[#E4C59E] bg-opacity-30 justify-between py-2 px-4 md:px-6 gap-8 text-sm text-gray-500 dark:bg-gray-800 dark:text-gray-400 flex-center">
+            {/* scroll process */}
+            <div className={`bg-beigecus bg-gradient-to-l w-full h-2 sticky inset-0 border-b ${process > 64 ? 'border-blackcus' : 'border-transparent'}`}>
+                <div className="bg-browncus h-full animate-process">
+                </div>
+            </div>
+
+            {/* info banner */}
+            <div className="bg-beigecus bg-opacity-30 justify-between py-1 px-4 md:px-6 gap-6 text-sm text-gray-500 dark:bg-gray-800 dark:text-gray-400 flex-center">
                 <span className="flex-center gap-2 ">
                     {lang === 'en' ? <EnIcon className="h-12 w-12" /> : <VnIcon className="h-12 w-12" />}
                     <Select value={lang} onValueChange={(value) => handleValueChange(value)}>
@@ -60,36 +61,39 @@ export default function Header() {
                 </span>
             </div>
 
-            <header ref={headerRef} className="flex h-16 items-center justify-between md:w-11/12 md:max-w-screen-xl m-auto sticky inset-0 transition-colors">
-                <Link className="flex items-center gap-2" href="#">
-                    <MountainIcon className="h-8 w-8" />
-                    <span className="font-semibold">{t?.header?.title}</span>
-                </Link>
-                <nav className="hidden md:flex items-center gap-14">
-                    <Link
-                        className="nav-item px-2"
-                        href="#"
-                    >
-                        {t?.header?.navigate?.home}
+            {/* header navigate */}
+            <header className={`${process > 64 ? 'bg-marooncus text-white' : 'bg-white text-blackcus'} w-full h-16 sticky inset-2 transition-colors`}>
+                <nav className="flex-center container h-full m-auto">
+                    <Link className="flex items-center gap-2" href="#">
+                        <MountainIcon className="h-8 w-8" />
+                        <span className="font-semibold">{t?.header?.title}</span>
                     </Link>
-                    <Link
-                        className="nav-item  px-2"
-                        href="#"
-                    >
-                        {t?.header?.navigate?.about}
-                    </Link>
-                    <Link
-                        className="nav-item  px-2"
-                        href="#"
-                    >
-                        {t?.header?.navigate?.price}
-                    </Link>
-                    <Link
-                        className="nav-item  px-2"
-                        href="#"
-                    >
-                        {t?.header?.navigate?.contact}
-                    </Link>
+                    <nav className="hidden md:flex items-center gap-6 ">
+                        <Link
+                            className="nav-item px-2"
+                            href="#"
+                        >
+                            {t?.header?.navigate?.home}
+                        </Link>
+                        <Link
+                            className="nav-item  px-2"
+                            href="#"
+                        >
+                            {t?.header?.navigate?.about}
+                        </Link>
+                        <Link
+                            className="nav-item  px-2"
+                            href="#"
+                        >
+                            {t?.header?.navigate?.price}
+                        </Link>
+                        <Link
+                            className="nav-item  px-2"
+                            href="#"
+                        >
+                            {t?.header?.navigate?.contact}
+                        </Link>
+                    </nav>
                 </nav>
             </header>
         </>

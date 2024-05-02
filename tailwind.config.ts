@@ -1,6 +1,15 @@
 import type { Config } from "tailwindcss"
 import { fontFamily } from "tailwindcss/defaultTheme"
 
+function withOpacity(variableName : any) {
+  return ({ opacityValue } : { opacityValue : any}) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -23,6 +32,10 @@ const config = {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       colors: {
+        browncus : withOpacity('--browncus'),
+        blackcus : withOpacity('--blackcus'),
+        marooncus : withOpacity('--marooncus'),
+        beigecus : withOpacity('--beigecus'),
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -78,7 +91,8 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate") ],
 } satisfies Config
 
 export default config
+

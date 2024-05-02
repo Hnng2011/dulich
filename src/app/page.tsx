@@ -1,30 +1,11 @@
+import FirstHero from '../components/Hero/first_hero';
+import SecondHero from '../components/Hero/second_hero';
+
 export default function Home() {
     return (
-        <main>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-            <div>for scrolling</div>
-        </main >
+        <div className='w-full'>
+            <FirstHero />
+            <SecondHero />
+        </div>
     );
 }

@@ -33,6 +33,11 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --browncus: 175, 130, 96;
+    --marooncus: 128, 61, 59;
+    --beigecus: 228, 197, 158;
+    --blacksus: 50, 44, 43;
   }
 
   .dark {
@@ -63,6 +68,11 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --browncus: 175, 130, 96;
+    --marooncus: 128, 61, 59;
+    --beigecus: 228, 197, 158;
+    --blacksus: 50, 44, 43;
   }
 }
 
@@ -73,5 +83,32 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+body {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  width: 0;
+}
+
+.animate-process {
+  animation: progress 1ms alternate;
+  animation-timeline: scroll();
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
   }
 }
