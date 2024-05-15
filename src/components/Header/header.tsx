@@ -19,11 +19,19 @@ export default function Header() {
     const router = useRouter();
     const pathname = usePathname()
     const process = useScroll();
+    const { language, updateLanguage } = useLanguage();
+    const [lang, setLang] = useState<string>(language);
+    const t = useTranslation();
+
+    const handleValueChange = useCallback((value: string) => {
+        setLang(value);
+        updateLanguage(value);
+    }, []);
 
     return (
         <>
             {/* header navigate */}
-            <header className={`${process > 64 ? 'bg-marooncus' : 'bg-transparent'} ${pathname == '/' || process > 64 ? 'text-white' : 'text-blackcus'}  w-full h-16 fixed inset-0 transition-colors z-10`}>
+            <header className={`${process > 64 ? 'bg-marooncus' : 'bg-transparent'} ${pathname == '/' || process > 64 ? 'text-white' : 'text-blackcus'}  w-full h-16 sticky inset-0 transition-colors z-10`}>
                 <nav className={`flex-center container h-full ${process < 64 && 'justify-end'}`}>
                     {process > 64 &&
                         <Link className="flex items-center gap-2" href="#">
