@@ -1,4 +1,5 @@
 import './styles.css';
+import Image from "next/image"
 
 const source = [
     {
@@ -49,8 +50,7 @@ export default function About() {
                                 return (
                                     <div className={`hover-cus overflow-hidden h-[300px] ${index === source.length - 1 && 'col-span-2'}`}>
                                         <p className='text-base'>{src.title}</p>
-                                        <img key={index} className='absolute object-cover h-full w-full' src={src.src} />
-                                    </div>
+                                        <Image key={index} alt='scenario' className='h-full w-full' src={src.src} fill />                                    </div>
 
                                 )
                             })
@@ -62,7 +62,7 @@ export default function About() {
                                 return (
                                     <div className={`hover-cus overflow-hidden h-[300px] ${index === 0 && 'col-span-2'}`}>
                                         <p className='text-base'>{src.title}</p>
-                                        <img key={index} className='object-cover h-full w-full' src={src.src} />
+                                        <Image key={index} alt='scenario' className='object-cover h-full w-full' src={src.src} fill />
                                     </div>
                                 )
                             })

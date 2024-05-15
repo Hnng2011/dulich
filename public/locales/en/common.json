@@ -7,5 +7,10 @@
             "price" : "Price",
             "contact": "Contact"
         }
+    } , 
+    "banner" :{
+        "hottour" : "Hot Tours",
+        "korean" : "Korean Tours",
+        "vietnam" : "Vietnam Tours"
     }
 }

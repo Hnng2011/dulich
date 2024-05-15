@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --animate-delay: 0.5s;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -38,6 +40,14 @@
     --marooncus: 128, 61, 59;
     --beigecus: 228, 197, 158;
     --blacksus: 50, 44, 43;
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(/fonts/Roboto.woff2) format('woff2');
+    }
   }
 
   .dark {

@@ -30,6 +30,7 @@ const config = {
     extend: {
       fontFamily: { 
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        spins: ["var(--font-spin)", ...fontFamily.mono],  
       },
       colors: {
         browncus : withOpacity('--browncus'),

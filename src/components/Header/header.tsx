@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link"
+import { useRouter, usePathname } from 'next/navigation'
 import { SVGProps, useCallback, useState } from "react";
 import {
     Select,
@@ -15,78 +16,40 @@ import './styles.css'
 
 
 export default function Header() {
+    const router = useRouter();
+    const pathname = usePathname()
     const process = useScroll();
-    const { language, updateLanguage } = useLanguage();
-    const [lang, setLang] = useState<string>(language);
-    const t = useTranslation();
-
-    const handleValueChange = useCallback((value: string) => {
-        setLang(value);
-        updateLanguage(value);
-    }, []);
 
     return (
         <>
-            {/* scroll process */}
-            <div className={`bg-beigecus bg-gradient-to-l w-full h-2 sticky inset-0 border-b ${process > 64 ? 'border-blackcus' : 'border-transparent'}`}>
-                <div className="bg-browncus h-full animate-process">
-                </div>
-            </div>
-
-            {/* info banner */}
-            <div className="bg-beigecus bg-opacity-30 justify-between py-1 px-4 md:px-6 gap-6 text-sm text-gray-500 dark:bg-gray-800 dark:text-gray-400 flex-center">
-                <span className="flex-center gap-2 ">
-                    {lang === 'en' ? <EnIcon className="h-12 w-12" /> : <VnIcon className="h-12 w-12" />}
-                    <Select value={lang} onValueChange={(value) => handleValueChange(value)}>
-                        <SelectTrigger className="w-[90px]">
-                            <SelectValue defaultValue={lang} />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="vn" ><span>VN</span> </SelectItem>
-                            <SelectItem value="en" ><span>EN</span> </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </span>
-
-                <span className="flex-center gap-6 ">
-                    <span className="flex-center gap-2">
-                        <PhoneIcon className="h-4 w-4" />
-                        <span>0888 000 3600</span>
-                    </span>
-
-                    <span className="flex-center gap-2">
-                        <LocateIcon className="h-4 w-4" />
-                        <span>145 Đ. Tân Kỳ Tân Quý, Tân Sơn Nhì, Tân Phú, Thành phố Hồ Chí Minh</span>
-                    </span>
-                </span>
-            </div>
-
             {/* header navigate */}
-            <header className={`${process > 64 ? 'bg-marooncus text-white' : 'bg-white text-blackcus'} w-full h-16 sticky inset-2 transition-colors`}>
-                <nav className="flex-center container h-full m-auto">
-                    <Link className="flex items-center gap-2" href="#">
-                        <MountainIcon className="h-8 w-8" />
-                        <span className="font-semibold">{t?.header?.title}</span>
-                    </Link>
+            <header className={`${process > 64 ? 'bg-marooncus' : 'bg-transparent'} ${pathname == '/' || process > 64 ? 'text-white' : 'text-blackcus'}  w-full h-16 fixed inset-0 transition-colors z-10`}>
+                <nav className={`flex-center container h-full ${process < 64 && 'justify-end'}`}>
+                    {process > 64 &&
+                        <Link className="flex items-center gap-2" href="#">
+                            <MountainIcon className="h-8 w-8" />
+                            <span className="font-semibold">{t?.header?.title}</span>
+                        </Link>
+                    }
+
                     <nav className="hidden md:flex items-center gap-6 ">
-                        <Link
-                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                            href="/"
+                        <a
+                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
+                            onClick={() => router.push('/')}
                         >
                             {t?.header?.navigate?.home}
-                        </Link>
-                        <Link
-                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                            href="about"
+                        </a>
+                        <a
+                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
+                            onClick={() => router.push('about')}
                         >
                             {t?.header?.navigate?.about}
-                        </Link>
-                        <Link
-                            className={`nav-item px-2 ${process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                            href="#"
+                        </a>
+                        <a
+                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
                         >
                             {t?.header?.navigate?.contact}
-                        </Link>
+                        </a>
                     </nav>
                 </nav>
             </header>

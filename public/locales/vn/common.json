@@ -7,5 +7,10 @@
             "price" : "Bảng giá",
             "contact": "Liên hệ"
         }
+    }, 
+    "banner" :{
+        "hottour" : "Tours nổi bật" ,
+        "korean" : "Tours Hàn Quốc",
+        "vietnam" : "Tours Việt Nam"
     }
 }
