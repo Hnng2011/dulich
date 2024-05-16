@@ -31,35 +31,33 @@ export default function Header() {
     return (
         <>
             {/* header navigate */}
-            <header className={`${process > 64 ? 'bg-marooncus' : 'bg-transparent'} ${pathname == '/' || process > 64 ? 'text-white' : 'text-blackcus'}  w-full h-16 sticky inset-0 transition-colors z-10`}>
-                <nav className={`flex-center container h-full ${process < 64 && 'justify-end'}`}>
-                    {process > 64 &&
-                        <Link className="flex items-center gap-2" href="#">
-                            <MountainIcon className="h-8 w-8" />
-                            <span className="font-semibold">{t?.header?.title}</span>
-                        </Link>
-                    }
+            <header className="w-full h-20 fixed inset-0 z-10">
+                <div className="w-full h-4 bg-marooncus"></div>
 
-                    <nav className="hidden md:flex items-center gap-6 ">
-                        <a
-                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                            onClick={() => router.push('/')}
-                        >
-                            {t?.header?.navigate?.home}
-                        </a>
-                        <a
-                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                            onClick={() => router.push('about')}
-                        >
-                            {t?.header?.navigate?.about}
-                        </a>
-                        <a
-                            className={`nav-item px-2 ${pathname == '/' || process > 64 ? 'before:bg-white' : 'before:bg-black'}`}
-                        >
-                            {t?.header?.navigate?.contact}
-                        </a>
-                    </nav>
+                <nav className="flex-center ml-[65%] items-center gap-6 bg-marooncus h-16 relative px-12 z-10 w-1/4 rounded-b-3xl">
+                    <a
+                        className="nav-item px-2 before:bg-white text-white"
+                        onClick={() => router.push('/')}
+                    >
+                        {t?.header?.navigate?.home}
+                    </a>
+                    <a
+                        className="nav-item px-2 before:bg-white text-white"
+                        onClick={() => router.push('about')}
+                    >
+                        {t?.header?.navigate?.about}
+                    </a>
+                    <a
+                        className="nav-item px-2 before:bg-white text-white"
+                    >
+                        {t?.header?.navigate?.contact}
+                    </a>
+
+                    <div className="h-[20px] w-[20px]  absolute inset-0 translate-x-[-100%] rounded-full shadow-[20px_-20px_0_10px_rgba(128,61,59,1)] bg-transparent"></div>
+                    <div className="h-[20px] w-[20px]  absolute inset-0 left-full rounded-full shadow-[-20px_-20px_0_10px_rgba(128,61,59,1)] bg-transparent"></div>
                 </nav>
+
+
             </header>
         </>
     )
