@@ -1,15 +1,19 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Image from "next/image"
 import Link from 'next/link';
+import formatPrice from '@/utils/format_price';
 
-function SecondHeroImage({ src, title, index, price }: { src: string, title: string, index: number, price: string }) {
+function SecondHeroImage({ src, title, index, price }: { src: string, title: string, index: number, price: number }) {
     return (
-        <Link href={'/'} className={`block ${index === 0 && 'col-span-2'}`}>
+        <Link href={'/'} className={`block ${index === 0 && 'col-span-2'} relative`}>
+            <div className='absolute inset-0 w-full h-[365px] hover:bg-black hover:bg-opacity-50 duration-200 rounded-sm'></div>
             <Image loading="eager" objectFit="contain" fill src={src} alt="banner" className='!static !w-full !h-[365px] !object-cover rounded-sm' />
-            <h3 className='mt-2 font-bold line-clamp-1'>{title}</h3>
-            <h3 className='mt-2 font-bold line-clamp-1 text-red-500'>{price} VNĐ</h3>
+            <div className='mt-2 font-bold line-clamp-1'>{title}</div>
+            <div className='font-bold flex-center mt-2'>
+                <div className='font-bold line-clamp-1 text-red-500'>{formatPrice(price)} VNĐ</div>
+            </div>
         </Link>
     )
 }

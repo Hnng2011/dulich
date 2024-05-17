@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 .nav-item {
-    @apply cursor-pointer text-lg font-medium relative before:absolute before:bottom-[-5px] before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:transition-all before:duration-300 before:ease-in-out hover:before:scale-x-100 dark:before:bg-gray-50 dark:hover:before:bg-gray-50 before:origin-center;
+    @apply hover:before:h-full before:bg-marooncus before:z-0;
+    @apply before:absolute before:inset-0 before:h-0 before:w-full before:duration-200;
+    @apply cursor-pointer text-lg h-full flex items-center justify-center font-medium relative text-white basis-1/4;
 }

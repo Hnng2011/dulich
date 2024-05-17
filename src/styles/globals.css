@@ -124,5 +124,5 @@ body {
 }
 
 .flex-center {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between text-center;
 }
