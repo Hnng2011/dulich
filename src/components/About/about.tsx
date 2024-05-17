@@ -60,7 +60,7 @@ export default function About() {
                         {
                             source2.map((src, index) => {
                                 return (
-                                    <div className={`hover-cus overflow-hidden h-[300px] ${index === 0 && 'col-span-2'}`}>
+                                    <div key={index} className={`hover-cus overflow-hidden h-[300px] ${index === 0 && 'col-span-2'}`}>
                                         <p className='text-base'>{src.title}</p>
                                         <Image key={index} alt='scenario' className='object-cover h-full w-full' src={src.src} fill />
                                     </div>
