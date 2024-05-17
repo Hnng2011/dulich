@@ -37,7 +37,7 @@ export default function FirstHero() {
         <div className={`h-screen w-screen grid grid-cols-3 ${!showContent ? 'pointer-events-none' : ""}`}>
             {
                 source.map((item, index) => {
-                    return <FirstHeroImage key={index} index={index} title={item.src} src={item.src} showContent={showContent} />;
+                    return <FirstHeroImage key={index} index={index} title={item.title} src={item.src} showContent={showContent} />;
                 })
             }
         </div >
