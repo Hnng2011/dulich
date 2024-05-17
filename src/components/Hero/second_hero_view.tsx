@@ -42,10 +42,6 @@ const source = [
         title: 'Bình Thuận',
         price: 22000000,
     }, {
-        src: '/assets/img/haugiang.jpg',
-        title: 'Bình Thuận',
-        price: 10000000,
-    }, {
         src: '/assets/img/cantho.jpg',
         title: 'Bình Thuận',
         price: 45000000,

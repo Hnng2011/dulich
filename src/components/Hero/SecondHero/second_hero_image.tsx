@@ -7,7 +7,7 @@ import formatPrice from '@/utils/format_price';
 
 function SecondHeroImage({ src, title, index, price }: { src: string, title: string, index: number, price: number }) {
     return (
-        <Link href={'/'} className={`block ${index === 0 && 'col-span-2'} relative`}>
+        <Link href={'/'} className={`block ${(index === 2 || index == 3) && 'col-span-2'} relative`}>
             <div className='absolute inset-0 w-full h-[365px] hover:bg-black hover:bg-opacity-50 duration-200 rounded-sm'></div>
             <Image loading="eager" objectFit="contain" fill src={src} alt="banner" className='!static !w-full !h-[365px] !object-cover rounded-sm' />
             <div className='mt-2 font-bold line-clamp-1'>{title}</div>
