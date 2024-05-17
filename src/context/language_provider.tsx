@@ -3,17 +3,20 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from 'react';
 
 const LanguageContext = createContext({
-    language: 'en', // Giá trị ngôn ngữ mặc định
-    updateLanguage: (lang: string) => { } // Hàm mặc định không làm gì cả
+    language: 'en',
+    updateLanguage: (lang: string) => { }
 });
 
 const getCurrentLanguage = () => {
-    const storedLang = localStorage.getItem('domain_lang');
-    if (!storedLang) {
-        localStorage.setItem('domain_lang', 'en'); // Set mặc định là 'en' nếu chưa có
-        return 'en';
+    if (typeof window !== 'undefined') {
+        const storedLang = localStorage.getItem('domain_lang');
+        if (!storedLang) {
+            localStorage.setItem('domain_lang', 'en');
+            return 'en';
+        }
+        return storedLang;
     }
-    return storedLang;
+    return 'en'; // Fallback for server-side rendering
 };
 
 export const useTranslation = () => {
@@ -45,20 +48,24 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
             setLanguage(getCurrentLanguage());
         };
 
-        window.addEventListener('storage', handleStorageChange);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('storage', handleStorageChange);
 
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-        };
+            return () => {
+                window.removeEventListener('storage', handleStorageChange);
+            };
+        }
     }, []);
 
     const updateLanguage = (lang: string) => {
-        localStorage.setItem('domain_lang', lang);
-        setLanguage(lang);
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('domain_lang', lang);
+            setLanguage(lang);
+        }
     };
 
     return (
-        <LanguageContext.Provider value={{ language, updateLanguage, }}>
+        <LanguageContext.Provider value={{ language, updateLanguage }}>
             {children}
         </LanguageContext.Provider>
     );

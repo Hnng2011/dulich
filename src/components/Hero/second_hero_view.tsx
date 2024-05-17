@@ -2,16 +2,9 @@
 
 import './styles.css';
 import { useTranslation } from '../../context/language_provider';
-import { Card, CardContent } from "@/components/ui/card"
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
 import Link from 'next/link';
 import Image from 'next/image';
+import SecondHeroImage from './SecondHero/second_hero_image';
 
 const source = [
     {
@@ -52,12 +45,8 @@ export default function SecondHero() {
                 <p className='w-1/3 text-sm text-right text-gray-400'>Khám phá các tour hot nhất tuần qua của chúng tôi và đăng kí ngay hôm nay</p>
             </div>
             <div className={`container grid grid-cols-4 gap-10 place-items-start mt-6 `}>
-                {source.map((src, index) => {
-                    return <Link key={index} href={'/'} className={`block ${index === 0 && 'col-span-2'}`}>
-                        <Image loading="eager" objectFit="contain" fill src={src.src} alt="banner" className='!static !w-full !h-[365px] !object-cover rounded-sm' />
-                        <h3 className='mt-2 font-bold line-clamp-1'>{src.title}</h3>
-                        <h3 className='mt-2 font-bold line-clamp-1 text-red-500'>{src.price} VNĐ</h3>
-                    </Link>
+                {source.map((item, index) => {
+                    return <SecondHeroImage key={index} index={index} src={item.src} title={item.title} price={item.price} />
                 })}
             </div>
         </div >
