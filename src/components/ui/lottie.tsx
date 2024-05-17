@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 
 const LottieAnimation = ({ animationData, className, loop = true, autoplay = true }: { animationData: object, className: string, loop: boolean, autoplay: boolean }) => {
-    const animationContainer = useRef(null);
-    const animationInstance = useRef(null);
+    const animationContainer = useRef<any>(null);
+    const animationInstance = useRef<any>(null);
 
     useEffect(() => {
         if (animationContainer.current) {
