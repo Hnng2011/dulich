@@ -1,9 +1,4 @@
-'use client'
-
 import './styles.css';
-import { useTranslation } from '../../context/language_provider';
-import Link from 'next/link';
-import Image from 'next/image';
 import SecondHeroImage from './SecondHero/second_hero_image';
 
 const source = [
@@ -36,8 +31,6 @@ const source = [
 ]
 
 export default function SecondHero() {
-    const t = useTranslation();
-
     return (
         <div className='h-screen w-screen items-center mt-16'>
             <div className='flex-center container items-start -skew-x-6'>
