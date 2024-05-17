@@ -31,8 +31,8 @@ export default function Header() {
     return (
         <>
             {/* header navigate */}
-            <header className="w-full h-20 fixed inset-x-1/2  z-10 top-3">
-                <nav className="relative -translate-x-1/2 flex-center !justify-center items-center h-12 w-1/3 bg-marooncus/60 rounded-full overflow-hidden z-10">
+            <header className="w-full h-20 fixed inset-x-1/2 z-10 top-3">
+                <nav className="relative -translate-x-1/2 flex-center !justify-center items-center h-12 w-1/3 bg-marooncus/50 rounded-full overflow-hidden z-10 backdrop-blur-md">
                     <a
                         className="nav-item"
                         onClick={() => router.push('/')}

@@ -1,5 +1,5 @@
 import './styles.css';
-import SecondHeroImage from './SecondHero/second_hero_image';
+import ThirdHeroImage from './ThirdHero/third_hero_image';
 import { SVGProps } from 'react';
 
 
@@ -37,30 +37,22 @@ const source = [
         src: '/assets/img/banner/bien.jpg',
         title: 'Bình Định',
         price: 2300000,
-    }, {
-        src: '/assets/img/banner/hoian.jpg',
-        title: 'Bình Thuận',
-        price: 22000000,
-    }, {
-        src: '/assets/img/cantho.jpg',
-        title: 'Bình Thuận',
-        price: 45000000,
     },
 ]
 
-export default function SecondHero() {
+export default function ThirdHero() {
     return (
         <div className='w-screen items-center py-16'>
             <div className='flex-center container items-start -skew-x-6'>
-                <h2 className='uppercase text-blackcus text-6xl font-black text-opacity-95 '>Hot tour</h2>
-                <p className='w-1/3 text-sm text-right text-gray-400'>Khám phá các tour hot nhất tuần qua của chúng tôi và đăng kí ngay hôm nay</p>
+                <h2 className='uppercase text-blackcus text-6xl font-black text-opacity-95 '>Tour Việt</h2>
+                <p className='w-1/3 text-sm text-right text-gray-400'>Đắm chìm trong các cảnh đẹp độc nhất , cuộc sống thú vị của Việt Nam</p>
             </div>
             <div className={`container grid grid-cols-4 gap-10 place-items-start mt-6 `}>
                 {source.map((item, index) => {
-                    return <SecondHeroImage key={index} index={index} src={item.src} title={item.title} price={item.price} />
+                    return <ThirdHeroImage key={index} src={item.src} title={item.title} price={item.price} />
                 })}
                 <div className='relative w-full h-full flex items-center justify-center text-2xl text-marooncus px-2 '>
-                    <div className='relative p-2 mx-auto flex items-center before:w-0 before:absolute hover:before:w-full before:right-0 hover:before:left-0 before:h-[3px] before:bottom-0 before:bg-marooncus before:-translate-x-2 cursor-pointer before:duration-200'>
+                    <div className='relative p-2 mx-auto flex items-center before:w-0 before:absolute hover:before:w-full before:h-[2px] before:right-0 hover:before:left-0 before:bottom-0 before:bg-marooncus before:-translate-x-2 cursor-pointer before:duration-200'>
                         <div>Xem Thêm</div>
                         <ArrowRightIcon className='ml-2' />
                     </div>
