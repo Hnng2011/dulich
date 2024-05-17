@@ -17,16 +17,16 @@ import './styles.css'
 
 export default function Header() {
     const router = useRouter();
-    const pathname = usePathname()
-    const process = useScroll();
-    const { language, updateLanguage } = useLanguage();
-    const [lang, setLang] = useState<string>(language);
+    // const pathname = usePathname()
+    // const process = useScroll();
+    // const { language, updateLanguage } = useLanguage();
+    // const [lang, setLang] = useState<string>(language);
     const t = useTranslation();
 
-    const handleValueChange = useCallback((value: string) => {
-        setLang(value);
-        updateLanguage(value);
-    }, []);
+    // const handleValueChange = useCallback((value: string) => {
+    //     setLang(value);
+    //     updateLanguage(value);
+    // }, []);
 
     return (
         <>

@@ -18,7 +18,7 @@ const getCurrentLanguage = () => {
 
 export const useTranslation = () => {
     const { language } = useLanguage();
-    const [translations, setTranslations] = useState({});
+    const [translations, setTranslations] = useState<any>(null);
 
     useEffect(() => {
         const loadTranslations = async () => {
