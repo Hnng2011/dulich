@@ -61,7 +61,7 @@ export default function Header() {
                         className="nav-item"
                     >
                         <p className="z-10">
-                            {t?.header?.navigate?.contact}
+                            {t?.header?.navigate?.favorite}
                         </p>
                     </a>
                 </nav>

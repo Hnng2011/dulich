@@ -5,7 +5,8 @@
             "home": "Home",
             "about": "About",
             "price" : "Price",
-            "contact": "Contact"
+            "contact": "Contact",
+            "favorite" : "Favorite"
         }
     } , 
     "banner" :{
