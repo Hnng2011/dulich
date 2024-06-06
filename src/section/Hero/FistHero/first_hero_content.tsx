@@ -19,7 +19,7 @@ function FirstHeroContent() {
             <Flex className='h-full'>
                 {title.map((tit, index) =>
                     <Flex key={index} className='gap-6'>
-                        <div className='text-6xl font-black font-bitter text-muted-foreground'>{`0${index + 1}`}</div>
+                        <div className='text-6xl font-black font-bitter text-subtext'>{`0${index + 1}`}</div>
                         <Flex className='flex-col !items-start'>
                             <div className='text-xl'>{tit.one}</div>
                             <div className='text-muted-foreground'>{tit.two}</div>

@@ -1,5 +1,5 @@
 import './styles.css';
-import SecondHeroContent from './SecondHero/second_hero_image';
+import SecondHeroContent from './SecondHero/second_hero_content';
 
 const source = [
     {

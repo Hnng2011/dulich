@@ -1,0 +1,7 @@
+.mask {
+    mask-image: url('../../../public/assets/mask/splash.png');
+    mask-size: 92%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    object-fit: contain !important;
+}

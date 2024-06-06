@@ -2,9 +2,9 @@ import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import Grid from '@/components/ui/grid'
 import React from 'react'
-import Airplane from '../../../../../public/assets/icon/airplane'
+import Airplane from '../../../../public/assets/icon/airplane'
 import Image from 'next/image'
-import Image1 from '../../../../../public/assets/img/binhdinh.jpg'
+import Introduce from '../../../../public/assets/img/banner/hanquoc.jpg'
 
 const title: { paragraph: { icon: string | null, content: string }[] | string }[] = [
     { paragraph: 'HÃY CHỌN TRAVELGO' },
@@ -29,12 +29,12 @@ function SecondHeroContent() {
             <Flex className='gap-6'>
                 <Flex className='flex-col gap-6'>
                     {title.map((titl, index) =>
-                        index <= 2 ? <div key={index} className={`text-center ${index === 0 && 'text-3xl font-black font-bitter'} ${index === 1 && 'text-lg'} ${index === 2 && 'text-[15px] text-gray-500'}`}>{titl.paragraph.toString()}</div>
+                        index <= 2 ? <div key={index} className={`text-center ${index === 0 && 'text-3xl font-black font-bitter text-maintext'} ${index === 1 && 'text-lg'} ${index === 2 && 'text-[15px] text-muted-foreground'}`}>{titl.paragraph.toString()}</div>
                             : <Grid key={index} className='grid-cols-3 w-full gap-x-28 gap-y-2'>
                                 {
                                     Array.isArray(titl.paragraph) && titl.paragraph.map((tit, idx) =>
                                         <Flex key={index + idx} justify='between' className='gap-2 w-full text-muted-foreground font-medium text-sm'>
-                                            <Airplane className='text-green-600 fill-green-600 h-3 w-3' />
+                                            <Airplane className='text-subtext fill-subtext h-3 w-3' />
                                             <p>{tit.content}</p>
                                         </Flex>)
                                 }
@@ -42,8 +42,14 @@ function SecondHeroContent() {
                     )}
                 </Flex>
 
-                <Container className='relative h-80'>
-                    <Image src={Image1} alt={'test'} fill />
+                <Container className='relative h-96'>
+                    <Image
+                        src={Introduce}
+                        alt="test"
+                        fill
+                        objectFit="cover"
+                        className="absolute inset-0 w-full h-full mask"
+                    />
                 </Container>
             </Flex>
         </Container>

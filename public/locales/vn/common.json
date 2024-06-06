@@ -12,5 +12,10 @@
     "hottour": "Hot Tours",
     "korean": "Korean Tours",
     "vietnam": "Vietnam Tours"
+  },
+  "hero": {
+    "first": null,
+    "second": null,
+    "third": null
   }
 }

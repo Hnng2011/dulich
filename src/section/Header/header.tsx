@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
 import { useTranslation, useLanguage } from "@/context/language_provider"
-import SearchIcon from "../../../../public/assets/icon/search";
+import SearchIcon from "../../../public/assets/icon/search";
 import {
     Select,
     SelectContent,

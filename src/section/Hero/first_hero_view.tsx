@@ -7,7 +7,7 @@ import FirstHeroContent from "./FistHero/first_hero_content";
 export default function FirstHero() {
 
     return (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col shadow">
             <FirstHeroImage />
             <FirstHeroContent />
         </div >
