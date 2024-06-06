@@ -1,14 +1,22 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 interface FlexProp {
-    children?: ReactNode,
-    className?: string
+  column?: number
+  row?: number
+  children?: ReactNode
+  className?: string
 }
 
 export default function Grid(props: FlexProp) {
-    return (
-        <div className={`${props.className || ''} grid grid-cols-2`} >
-            {props.children}
-        </div>
-    )
+  const template = props.row
+    ? `grid-rows-${props.row}`
+    : props.column
+      ? `grid-cols-${props.column}`
+      : 'grid-cols-2'
+
+  return (
+    <div className={`${props.className || ''} grid ${template}`}>
+      {props.children}
+    </div>
+  )
 }

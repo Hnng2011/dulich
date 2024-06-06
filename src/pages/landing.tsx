@@ -5,15 +5,16 @@ import ThirdHero from '@/section/Hero/third_hero_view'
 import Container from '@/components/ui/container'
 
 export default function Landing() {
-    return (
-        <>
-            <FirstHero />
-            <Container className='h-24' />
-            <SecondHero />
-            <Container className='h-24' />
-            <ThirdHero />
-            <FourthdHero />
-        </>
-    )
+  return (
+    <>
+      <FirstHero />
+      <Container className="h-24" />
+      <SecondHero />
+      <Container className="h-24" />
+      <ThirdHero />
+      <Container className="h-24" />
+      <FourthdHero />
+      <Container className="h-24" />
+    </>
+  )
 }
-
