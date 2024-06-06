@@ -1,17 +1,16 @@
 {
-    "header": {
-        "title": "Acme Inc",
-        "navigate": {
-            "home": "Trang chủ",
-            "about": "Về chúng tôi",
-            "price" : "Bảng giá",
-            "contact": "Liên hệ",
-            "favorite" : "Yêu thích"
-        }
-    }, 
-    "banner" :{
-        "hottour" : "Tours nổi bật" ,
-        "korean" : "Tours Hàn Quốc",
-        "vietnam" : "Tours Việt Nam"
+  "header": {
+    "navigate": {
+      "home": "Trang chủ",
+      "about": "Về chúng tôi",
+      "tour": "Tour",
+      "blog": "Blog",
+      "contact": "Liên hệ"
     }
+  },
+  "banner": {
+    "hottour": "Hot Tours",
+    "korean": "Korean Tours",
+    "vietnam": "Vietnam Tours"
+  }
 }

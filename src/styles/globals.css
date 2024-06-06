@@ -41,6 +41,11 @@
     --beigecus: 228, 197, 158;
     --blacksus: 50, 44, 43;
 
+    --main-text: 17, 45, 78;
+    --main-background: 249, 247, 247;
+    --sub-text: 63, 114, 175;
+    --sub-background: 219, 226, 239;
+
     @font-face {
       font-family: 'Roboto';
       font-style: normal;

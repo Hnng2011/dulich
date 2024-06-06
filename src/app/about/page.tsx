@@ -1,4 +1,4 @@
-import About from '@/components/About/about';
+import About from '@/components/section/About/about';
 
 export default function Home() {
     return (

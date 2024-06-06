@@ -1,42 +1,46 @@
-import type { Config } from "tailwindcss"
-import { fontFamily } from "tailwindcss/defaultTheme"
+import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
-function withOpacity(variableName : any) {
-  return ({ opacityValue } : { opacityValue : any}) => {
+function withOpacity(variableName: any) {
+  return ({ opacityValue }: { opacityValue: any }) => {
     if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`
+      return `rgba(var(${variableName}), ${opacityValue})`;
     }
-    return `rgb(var(${variableName}))`
-  }
+    return `rgb(var(${variableName}))`;
+  };
 }
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1200px",
+        xl: "1440px",
       },
     },
     extend: {
-      fontFamily: { 
+      aspectRatio: {
+        "5/2": "5 / 2",
+      },
+      fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        spins: ["var(--font-spin)", ...fontFamily.mono],  
+        spins: ["var(--font-spin)", ...fontFamily.mono],
+        bitter: ["var(--font-bitter)", ...fontFamily.sans],
       },
       colors: {
-        browncus : withOpacity('--browncus') as unknown as string,
-        blackcus : withOpacity('--blackcus') as unknown as string,
-        marooncus : withOpacity('--marooncus') as unknown as string,
-        beigecus : withOpacity('--beigecus') as unknown as string,
+        maintext: withOpacity("--main-text") as unknown as string,
+        subtext: withOpacity("--sub-text") as unknown as string,
+        mainbackground: withOpacity("--main-background") as unknown as string,
+        subbackground: withOpacity("--sub-text") as unknown as string,
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -92,8 +96,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate") ],
-} satisfies Config
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
-export default config
-
+export default config;

@@ -1,17 +1,16 @@
 {
-    "header": {
-        "title": "Acme Inc",
-        "navigate": {
-            "home": "Home",
-            "about": "About",
-            "price" : "Price",
-            "contact": "Contact",
-            "favorite" : "Favorite"
-        }
-    } , 
-    "banner" :{
-        "hottour" : "Hot Tours",
-        "korean" : "Korean Tours",
-        "vietnam" : "Vietnam Tours"
+  "header": {
+    "navigate": {
+      "home": "Home",
+      "about": "About",
+      "price": "Tour",
+      "blog": "Blog",
+      "contact": "Contact"
     }
+  },
+  "banner": {
+    "hottour": "Hot Tours",
+    "korean": "Korean Tours",
+    "vietnam": "Vietnam Tours"
+  }
 }
