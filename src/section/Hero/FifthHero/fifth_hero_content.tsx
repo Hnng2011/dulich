@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { convertToLocalDate } from '@/utils/format_date'
 import { ArrowRightIcon } from 'lucide-react'
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 const news: NewInfo[] = [
   {
@@ -55,6 +57,13 @@ function FifthHeroContent() {
           <ArrowRightIcon className="h-5 w-5" />
         </Flex>
       </Link>
+      <Container className='h-24' />
+      <h2 className='font-black font-bitter text-3xl w-full text-center'>Nhận tin khuyến mãi ?</h2>
+      <Container className='h-6' />
+      <Flex justify='center' gap={2} className="w-full">
+        <Input className='!h-11 max-w-lg' type="email" placeholder="Email" />
+        <Button size="lg" type="submit">Subscribe</Button>
+      </Flex>
     </Container>
   )
 }

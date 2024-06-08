@@ -90,8 +90,8 @@ function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
   return (
     <Container>
-      <Flex className="items-start -skew-x-6">
-        <h2 className="uppercase text-3xl font-black text-opacity-95 font-bitter">
+      <Flex align='start' className="-skew-x-6">
+        <h2 className="uppercase text-2xl md:text-3xl font-black text-opacity-95 font-bitter">
           HOT DEAL
         </h2>
         <p className="w-1/3 text-sm text-right text-muted-foreground">
@@ -105,7 +105,7 @@ function ThirdHeroContent() {
             {tour.map((tou, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/4"
+                className="basis-1/1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
@@ -130,7 +130,7 @@ function ThirdHeroContent() {
 
       <Container className="h-24" />
 
-      <Flex className="items-start -skew-x-6">
+      <Flex align='start' className="-skew-x-6">
         <h2 className="uppercase text-3xl font-black text-opacity-95 font-bitter">
           YÊU THÍCH
         </h2>
@@ -145,7 +145,7 @@ function ThirdHeroContent() {
             {tour.map((tou, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/4"
+                className="basis-1/1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >

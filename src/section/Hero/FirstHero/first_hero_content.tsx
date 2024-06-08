@@ -19,15 +19,15 @@ const title = [
 
 function FirstHeroContent() {
   return (
-    <Container className="h-36">
-      <Flex className="h-full">
+    <Container className="md:h-36">
+      <Flex col gap={6} align='start' className="h-full py-6 md:gap-0 md:py-0 md:items-center md:flex-row ">
         {title.map((tit, index) => (
           <Flex key={index} className="gap-6">
-            <div className="text-6xl font-black font-bitter text-subtext">{`0${index + 1}`}</div>
-            <div className="text-6xl text-muted-foreground">&gt;</div>
+            <div className="text-4xl md:text-6xl font-black font-bitter text-subtext">{`0${index + 1}`}</div>
+            <div className="text-4xl md:text-6xl text-muted-foreground">&gt;</div>
             <Flex col={true} className="!items-start">
-              <div className="text-xl">{tit.one}</div>
-              <div className="text-muted-foreground">{tit.two}</div>
+              <div className="text-base md:text-xl">{tit.one}</div>
+              <div className="text-base md:text-xl text-muted-foreground">{tit.two}</div>
             </Flex>
           </Flex>
         ))}

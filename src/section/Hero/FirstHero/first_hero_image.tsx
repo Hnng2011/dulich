@@ -20,7 +20,7 @@ const source = [
 
 function FirstHeroImage() {
   return (
-    <div className="relative aspect-5/2">
+    <div className="relative aspect-square md:aspect-5/2">
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/50 z-10" />
       {source && <Image src={source?.[0].src} alt={source?.[0]?.alt} fill />}
     </div>

@@ -25,7 +25,7 @@ const rating = [
 
 function FourthdHeroContent() {
   return (
-    <div className="relative w-full aspect-5/2">
+    <div className="relative w-full md:aspect-5/2">
       <Image src={Forest} fill alt="forest" />
       <Container className="h-full py-20">
         <Flex
@@ -33,10 +33,10 @@ function FourthdHeroContent() {
           col={true}
           className="bg-gray-300 backdrop-blur bg-opacity-10 h-full rounded-3xl shadow"
         >
-          <h2 className="text-3xl font-black font-bitter uppercase">
+          <h2 className="text-2xl md:text-3xl font-black font-bitter uppercase">
             Khách hàng đánh giá
           </h2>
-          <h3 className="text-muted-foreground">
+          <h3 className="text-xs md:text-base text-muted-foreground">
             Mục tiêu hàng đầu của chúng tôi là sự hài lòng của khách hàng
           </h3>
           <Container className="h-14" />
@@ -45,11 +45,11 @@ function FourthdHeroContent() {
               {rating.map((rate, index) => (
                 <CarouselItem key={index} className="">
                   <Flex col gap={6} justify="center">
-                    <blockquote className="text-center w-2/3 italic">
+                    <blockquote className="text-xs md:text-base text-center w-2/3 italic">
                       "{rate.rate}"
                     </blockquote>
                     <Flex gap={6}>
-                      <Avatar className="h-16 w-16 text-bitter">
+                      <Avatar className="h-12 w-12 md:h-16 md:w-16 text-bitter">
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
