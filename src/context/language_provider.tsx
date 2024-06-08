@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from 'react';
 
 const LanguageContext = createContext({
-    language: 'en',
+    language: 'vn',
     updateLanguage: (lang: string) => { }
 });
 
@@ -12,11 +12,11 @@ const getCurrentLanguage = () => {
         const storedLang = localStorage.getItem('domain_lang');
         if (!storedLang) {
             localStorage.setItem('domain_lang', 'en');
-            return 'en';
+            return 'vn';
         }
         return storedLang;
     }
-    return 'en'; // Fallback for server-side rendering
+    return 'vn'; // Fallback for server-side rendering
 };
 
 export const useTranslation = () => {
