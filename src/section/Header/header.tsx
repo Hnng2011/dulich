@@ -36,7 +36,7 @@ export default function Header() {
         <>
             {
                 t &&
-                <Container className={`bg-transparent z-20 fixed text-white ${process && '!text-maintext'} text-lg font-spin ${process && 'before:translate-y-0'}  before:h-20 before:-translate-y-full before:duration-300 before:fixed before:inset-0 before:w-full before:h-full before:bg-subbackground before:z-20`}>
+                <Container className={`bg-transparent z-20 fixed text-white ${process && '!text-maintext'} text-lg font-spin ${process && 'before:translate-y-0'}  before:h-20 before:-translate-y-full before:duration-300 before:fixed before:inset-0 before:w-full before:bg-subbackground before:z-20`}>
                     <Flex className="w-full z-20 relative">
                         <Flex className="gap-8 h-20">
                             {
