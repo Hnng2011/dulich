@@ -4,14 +4,14 @@ interface FlexProp {
   col?: boolean
   gap?: number
   justify?:
-    | 'center'
-    | 'start'
-    | 'end'
-    | 'between'
-    | 'around'
-    | 'evenly'
-    | 'stretch'
-    | undefined
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'between'
+  | 'around'
+  | 'evenly'
+  | 'stretch'
+  | undefined
   align?: 'center' | 'start' | 'end' | 'baseline' | 'stretch' | undefined
   children?: ReactNode
   className?: string

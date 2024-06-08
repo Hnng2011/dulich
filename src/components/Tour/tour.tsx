@@ -7,6 +7,7 @@ import { Airplay } from 'lucide-react'
 import Image from 'next/image'
 import Hot from '../../../public/assets/img/tags/hot.png'
 import Fav from '../../../public/assets/img/tags/fav.png'
+import Price from '../../../public/assets/icon/price-tag'
 
 export default function TourInfo({
   tour,
@@ -51,12 +52,13 @@ export default function TourInfo({
               {countDays(tour.timeStart, tour.timeEnd)} ngày
             </h2>
             <Flex gap={2}>
-              <Airplay className="text-subbackground" />
-              <Airplay className="text-subbackground" />
-              <Airplay className="text-subbackground" />
+              <Airplay className="text-subtext" />
+              <Airplay className="text-subtext" />
+              <Airplay className="text-subtext" />
             </Flex>
           </Flex>
           <Flex justify="start" gap={2} className="w-full">
+            <Price />
             {tour.fixedPrice && (
               <h2 className="text-2xl text-contrast">
                 {formatPrice(tour.fixedPrice[0], tour.fixedPrice[1])}

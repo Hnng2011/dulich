@@ -11,6 +11,7 @@ import {
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import { ArrowRightIcon } from 'lucide-react'
+import Autoplay from "embla-carousel-autoplay"
 
 const tour: TourInfo[] = [
   {
@@ -19,8 +20,8 @@ const tour: TourInfo[] = [
     timeStart: new Date(Date.now()),
     timeEnd: new Date(Date.now() + Date.now()),
     transport: ['plane', 'boat'],
-    price: [1000000, 'vnd'],
-    fixedPrice: [500000, 'vnd'],
+    price: [1000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
     tag: 'hot',
   },
   {
@@ -29,8 +30,8 @@ const tour: TourInfo[] = [
     timeStart: new Date(Date.now()),
     timeEnd: new Date(Date.now() + Date.now()),
     transport: ['plane', 'boat'],
-    price: [3000000, 'vnd'],
-    fixedPrice: [500000, 'vnd'],
+    price: [3000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
     tag: 'hot',
   },
   {
@@ -39,8 +40,8 @@ const tour: TourInfo[] = [
     timeStart: new Date(Date.now()),
     timeEnd: new Date(Date.now() + Date.now()),
     transport: ['plane', 'boat'],
-    price: [2000000, 'vnd'],
-    fixedPrice: [500000, 'vnd'],
+    price: [2000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
     tag: 'fav',
   },
   {
@@ -49,8 +50,38 @@ const tour: TourInfo[] = [
     timeStart: new Date(Date.now()),
     timeEnd: new Date(Date.now() + Date.now()),
     transport: ['plane', 'boat'],
-    price: [2000000, 'vnd'],
-    fixedPrice: [500000, 'vnd'],
+    price: [2000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
+    tag: 'hot',
+  },
+  {
+    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
+    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
+    timeStart: new Date(Date.now()),
+    timeEnd: new Date(Date.now() + Date.now()),
+    transport: ['plane', 'boat'],
+    price: [2000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
+    tag: 'hot',
+  },
+  {
+    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
+    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
+    timeStart: new Date(Date.now()),
+    timeEnd: new Date(Date.now() + Date.now()),
+    transport: ['plane', 'boat'],
+    price: [2000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
+    tag: 'hot',
+  },
+  {
+    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
+    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
+    timeStart: new Date(Date.now()),
+    timeEnd: new Date(Date.now() + Date.now()),
+    transport: ['plane', 'boat'],
+    price: [2000000, 'VND'],
+    fixedPrice: [500000, 'VND'],
     tag: 'hot',
   },
 ]
@@ -61,7 +92,7 @@ function ThirdHeroContent() {
   return (
     <Container>
       <Flex className="items-start -skew-x-6">
-        <h2 className="uppercase text-blackcus text-3xl font-black text-opacity-95 font-bitter text-subtext">
+        <h2 className="uppercase text-3xl font-black text-opacity-95 font-bitter">
           HOT DEAL
         </h2>
         <p className="w-1/3 text-sm text-right text-muted-foreground">
@@ -70,7 +101,7 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel className="w-full">
+        <Carousel plugins={[Autoplay({ delay: 5000 })]} className="w-full">
           <CarouselContent>
             {tour.map((tou, index) => (
               <CarouselItem
@@ -101,7 +132,7 @@ function ThirdHeroContent() {
       <Container className="h-24" />
 
       <Flex className="items-start -skew-x-6">
-        <h2 className="uppercase text-blackcus text-3xl font-black text-opacity-95 font-bitter text-subtext">
+        <h2 className="uppercase text-3xl font-black text-opacity-95 font-bitter">
           YÊU THÍCH
         </h2>
         <p className="w-1/3 text-sm text-right text-muted-foreground">
@@ -110,7 +141,7 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel className="w-full">
+        <Carousel plugins={[Autoplay({ delay: 5000, stopOnInteraction: false, stopOnLastSnap: false })]} className="w-full">
           <CarouselContent>
             {tour.map((tou, index) => (
               <CarouselItem

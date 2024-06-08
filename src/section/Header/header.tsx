@@ -17,11 +17,14 @@ import './styles.css'
 import { useCallback, useState } from "react";
 import Flex from "@/components/ui/flex";
 import Container from "@/components/ui/container";
+import useScroll from "@/hooks/use-scroll";
+import VN from '../../../public/assets/icon/vn'
+import US from '../../../public/assets/icon/us'
 
 
 export default function Header() {
     const router = useRouter();
-    // const process = useScroll();
+    const process = useScroll();
     const { language, updateLanguage } = useLanguage();
     const t = useTranslation();
 
@@ -33,24 +36,24 @@ export default function Header() {
         <>
             {
                 t &&
-                <Container className="bg-transparent z-20 fixed text-white text-lg font-spin">
-                    <Flex className="w-full">
+                <Container className={`bg-transparent z-20 fixed text-white ${process && '!text-maintext'} text-lg font-spin ${process && 'before:translate-y-0'}  before:h-20 before:-translate-y-full before:duration-300 before:fixed before:inset-0 before:w-full before:h-full before:bg-subbackground before:z-20`}>
+                    <Flex className="w-full z-20 relative">
                         <Flex className="gap-8 h-20">
                             {
                                 Object.keys(t.header.navigate).map((key, index) => (
-                                    <Link href={""} key={index}>{t.header.navigate[key]}</Link>
+                                    <Link href={""} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'}`}>{t.header.navigate[key]}</Link>
                                 ))
                             }
                         </Flex>
                         <Flex className="justify-end gap-8 h-20">
                             <Select value={language} onValueChange={handleValueChange}>
-                                <SelectTrigger className="w-24 text-black">
+                                <SelectTrigger className="w-13 text-maintext">
                                     <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
-                                        <SelectItem value="vn">VIET</SelectItem>
-                                        <SelectItem value="en">MY</SelectItem>
+                                        <SelectItem value="vn"><VN /></SelectItem>
+                                        <SelectItem value="en"><US /></SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>

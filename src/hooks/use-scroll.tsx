@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 export default function useScroll() {
-    const [process, setProcess] = useState<number>(0);
+    const [process, setProcess] = useState<number>(window.scrollY);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {

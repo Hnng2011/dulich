@@ -8,61 +8,53 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { convertToLocalDate } from '@/utils/format_date'
 
-const rating = [
+const news: NewInfo[] = [
   {
-    rate: 'Gia đình mình đã sử dụng dịch vụ du lịch ở rất nhiều nơi, nhưng với TravelGo mình và gia đình luôn cảm thấy yên tâm nhất về chất lượng dịch vụ, cũng như chế độ chăm sóc tận tình  trong suốt hành trình, mình sẽ giới thiệu bạn bè tham gia và sử dụng dịch vụ du lịch vủa công ty. Nếu bạn chưa thử hay thử ngay và gửi phản hồi nhé, xem bạn có giống như mình không.',
-    avtUrl: '',
-    raterName: 'Phi Hùng',
+    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
+    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết một lần trong đời ',
+    author: 'Phi Hùng',
+    time: new Date(Date.now())
   },
   {
-    rate: 'Gia đình mình đã sử dụng dịch vụ du lịch ở rất nhiều nơi, nhưng với TravelGo mình và gia đình luôn cảm thấy yên tâm nhất về chất lượng dịch vụ, cũng như chế độ chăm sóc tận tình  trong suốt hành trình, mình sẽ giới thiệu bạn bè tham gia và sử dụng dịch vụ du lịch vủa công ty. Nếu bạn chưa thử hay thử ngay và gửi phản hồi nhé, xem bạn có giống như mình không.',
-    avtUrl: '',
-    raterName: 'Phi Hùng',
+    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
+    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
+    author: 'Phi Hùng',
+    time: new Date(Date.now())
+  },
+  {
+    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
+    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
+    author: 'Phi Hùng',
+    time: new Date(Date.now())
   },
 ]
 
-function FourthdHeroContent() {
+function FifthHeroContent() {
   return (
-    <div className="relative w-full aspect-5/2">
-      <Image src={Forest} fill alt="forest" />
-      <Container className="h-full py-20">
-        <Flex
-          justify="center"
-          col={true}
-          className="bg-gray-300 backdrop-blur bg-opacity-10 h-full rounded-3xl shadow"
-        >
-          <h2 className="text-3xl font-black font-bitter uppercase">
-            Khách hàng đánh giá
-          </h2>
-          <h3 className="text-muted-foreground">
-            Mục tiêu hàng đầu của chúng tôi là sự hài lòng của khách hàng
-          </h3>
-          <Container className="h-14" />
-          <Carousel className="w-full">
-            <CarouselContent>
-              {rating.map((rate, index) => (
-                <CarouselItem key={index} className="">
-                  <Flex col gap={6} justify="center">
-                    <blockquote className="text-center w-2/3 italic">
-                      "{rate.rate}"
-                    </blockquote>
-                    <Flex gap={6}>
-                      <Avatar className="h-16 w-16 text-bitter">
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                      </Avatar>
-                      <h3 className="uppercase font-bold">{rate.raterName}</h3>
-                    </Flex>
-                  </Flex>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </Flex>
-      </Container>
-    </div>
+    <Container>
+      <h2 className='uppercase text-3xl font-black font-bitter text-center'>Tin khuyến mãi</h2>
+      <Container className='h-12' />
+      <Flex gap={6} align='start'>
+        {news.map((inf, index) =>
+          <Flex col gap={6} align='start' key={index} className='basis-1/3 h-full'>
+            <div className='aspect-4/3 w-full relative'>
+              <Image alt="news" src={inf.img} fill />
+            </div>
+            <Flex col gap={2}>
+              <h3 className='font-semibold text-lg line-clamp-2'>
+                {inf.name}
+              </h3>
+              <Flex justify='start' align='center' className='w-full'>
+                <p className='text-gray-600'>{convertToLocalDate(inf.time)} | Tác giả: {inf.author}</p>
+              </Flex>
+            </Flex>
+          </Flex>
+        )}
+      </Flex>
+    </Container>
   )
 }
 
-export default FourthdHeroContent
+export default FifthHeroContent
