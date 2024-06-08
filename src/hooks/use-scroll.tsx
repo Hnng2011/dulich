@@ -3,17 +3,22 @@
 import { useEffect, useMemo, useState } from "react";
 
 export default function useScroll() {
-    const [process, setProcess] = useState<number>(window.scrollY);
+    const [process, setProcess] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             setProcess(window.scrollY);
-        });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+
 
         return () => {
-            window.removeEventListener('scroll', () => { });
-        }
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
+    // Use useMemo to return the memoized process value
     return useMemo(() => process, [process]);
 }
