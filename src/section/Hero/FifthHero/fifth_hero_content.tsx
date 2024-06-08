@@ -1,14 +1,9 @@
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
-import Forest from '../../../../public/assets/img/forest.png'
 import Image from 'next/image'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import Link from 'next/link'
 import { convertToLocalDate } from '@/utils/format_date'
+import { ArrowRightIcon } from 'lucide-react'
 
 const news: NewInfo[] = [
   {
@@ -53,6 +48,13 @@ function FifthHeroContent() {
           </Flex>
         )}
       </Flex>
+      <Container className='h-4' />
+      <Link href="">
+        <Flex justify="end" gap={1.5} className="text-lg pr-2">
+          <p>Xem thêm</p>
+          <ArrowRightIcon className="h-5 w-5" />
+        </Flex>
+      </Link>
     </Container>
   )
 }

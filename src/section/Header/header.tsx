@@ -1,6 +1,8 @@
 'use client';
 
 import Link from "next/link"
+import Grid from "@/components/ui/grid";
+import Logo from "../../../public/assets/logo/logo"
 import { useRouter } from 'next/navigation'
 import { useTranslation, useLanguage } from "@/context/language_provider"
 import SearchIcon from "../../../public/assets/icon/search";
@@ -14,7 +16,7 @@ import {
 } from "@/components/ui/select"
 
 import './styles.css'
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import Flex from "@/components/ui/flex";
 import Container from "@/components/ui/container";
 import useScroll from "@/hooks/use-scroll";
@@ -37,13 +39,16 @@ export default function Header() {
             {
                 t &&
                 <Container className={`bg-transparent z-20 fixed text-white ${process && '!text-maintext'} text-lg font-spin ${process && 'before:translate-y-0'}  before:h-20 before:-translate-y-full before:duration-300 before:fixed before:inset-0 before:w-full before:bg-subbackground before:z-20`}>
-                    <Flex className="w-full z-20 relative">
-                        <Flex className="gap-8 h-20">
-                            {
-                                Object.keys(t.header.navigate).map((key, index) => (
-                                    <Link href={""} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'}`}>{t.header.navigate[key]}</Link>
-                                ))
-                            }
+                    <Flex align="start" className="w-full z-20 relative">
+                        <Flex gap={8} align="start">
+                            <Logo className="h-32" />
+                            <Flex className="gap-8 h-20">
+                                {
+                                    Object.keys(t.header.navigate).map((key, index) => (
+                                        <Link href={""} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'}`}>{t.header.navigate[key]}</Link>
+                                    ))
+                                }
+                            </Flex>
                         </Flex>
                         <Flex className="justify-end gap-8 h-20">
                             <Select value={language} onValueChange={handleValueChange}>

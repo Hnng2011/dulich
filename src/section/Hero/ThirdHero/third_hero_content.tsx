@@ -88,7 +88,6 @@ const tour: TourInfo[] = [
 
 function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
-
   return (
     <Container>
       <Flex className="items-start -skew-x-6">
@@ -101,7 +100,7 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel plugins={[Autoplay({ delay: 5000 })]} className="w-full">
+        <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
             {tour.map((tou, index) => (
               <CarouselItem
@@ -141,7 +140,7 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel plugins={[Autoplay({ delay: 5000, stopOnInteraction: false, stopOnLastSnap: false })]} className="w-full">
+        <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
             {tour.map((tou, index) => (
               <CarouselItem
