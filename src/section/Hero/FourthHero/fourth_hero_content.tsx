@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import Forest from '../../../../public/assets/img/forest.png'
