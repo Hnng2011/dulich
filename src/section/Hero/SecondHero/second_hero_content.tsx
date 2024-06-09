@@ -33,7 +33,7 @@ const title: {
 function SecondHeroContent() {
   return (
     <Container>
-      <Flex col className="gap-6 md:flex-row">
+      <Flex col className="gap-6 lg:flex-row">
         <Flex col={true} className="gap-6">
           {title.map((titl, index) =>
             index <= 2 ? (
@@ -44,7 +44,7 @@ function SecondHeroContent() {
                 {titl.paragraph.toString()}
               </div>
             ) : (
-              <Grid key={index} className="grid-cols-2 md:grid-cols-3 w-full gap-x-28 gap-y-2">
+              <Grid key={index} className="grid-cols-2 xl:grid-cols-3 w-full gap-x-6 md:gap-x-60 xl:gap-x-28 gap-y-2">
                 {Array.isArray(titl.paragraph) &&
                   titl.paragraph.map((tit, idx) => (
                     <Flex

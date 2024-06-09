@@ -25,35 +25,35 @@ const rating = [
 
 function FourthdHeroContent() {
   return (
-    <div className="relative w-full md:aspect-5/2">
+    <div className="relative w-full h-full xl:aspect-5/2">
       <Image src={Forest} fill alt="forest" />
-      <Container className="h-full py-20">
+      <Container className="h-full py-12 lg:py-20">
         <Flex
           justify="center"
           col={true}
-          className="bg-gray-300 backdrop-blur bg-opacity-10 h-full rounded-3xl shadow"
+          className="p-2 xl:p-0 bg-gray-300 backdrop-blur bg-opacity-10 h-full rounded-3xl shadow"
         >
           <h2 className="text-2xl md:text-3xl font-black font-bitter uppercase">
             Khách hàng đánh giá
           </h2>
-          <h3 className="text-xs md:text-base text-muted-foreground">
+          <h3 className="text-sm md:text-base text-muted-foreground text-center">
             Mục tiêu hàng đầu của chúng tôi là sự hài lòng của khách hàng
           </h3>
-          <Container className="h-14" />
+          <Container className="h-6 md:h-14" />
           <Carousel className="w-full">
             <CarouselContent>
               {rating.map((rate, index) => (
                 <CarouselItem key={index} className="">
                   <Flex col gap={6} justify="center">
-                    <blockquote className="text-xs md:text-base text-center w-2/3 italic">
+                    <blockquote className="text-sm md:text-base text-center w-2/3 italic">
                       "{rate.rate}"
                     </blockquote>
                     <Flex gap={6}>
-                      <Avatar className="h-12 w-12 md:h-16 md:w-16 text-bitter">
+                      <Avatar className="h-8 w-8 md:h-12 md:w-12 md:h-16 md:w-16 text-bitter">
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
-                      <h3 className="uppercase font-bold">{rate.raterName}</h3>
+                      <h3 className="text-sm md:text-base uppercase font-bold">{rate.raterName}</h3>
                     </Flex>
                   </Flex>
                 </CarouselItem>

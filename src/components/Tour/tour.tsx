@@ -17,9 +17,9 @@ export default function TourInfo({
 }) {
   return (
     <Card
-      className={`relative rounded overflow-hidden max-w-[324px] ${isHover ? '' : 'blur-sm'} duration-300`}
+      className={`relative rounded overflow-hidden lg:max-w-[324px] ${isHover ? '' : 'blur-sm'} duration-300`}
     >
-      <Image src={tour.img} fill alt="test" className="max-h-64 w-full" />
+      <Image src={tour.img} fill alt="test" className="max-h-72 md:max-h-64 w-full" />
       {tour.tag === 'hot' ? (
         <Image
           src={Hot}
@@ -37,7 +37,7 @@ export default function TourInfo({
           className="top-2 left-4 z-20 absolute -rotate-45"
         />
       )}
-      <Container className="h-64" />
+      <Container className="h-72 md:h-64" />
       <CardHeader className="py-3">
         <CardTitle className="line-clamp-2 text-maintext">
           {tour.name}
@@ -45,7 +45,7 @@ export default function TourInfo({
       </CardHeader>
       <CardContent>
         <Flex col={true} gap={3} align="start">
-          <Flex className="w-full">
+          <Flex className="w-full text-sm md:text-base">
             <Flex>
               <Clock className='h-4' />
               {convertToLocalDate(tour.timeStart)} /{' '}
@@ -60,7 +60,7 @@ export default function TourInfo({
           <Flex justify="start" gap={2} className="w-full">
             <BadgePercent className='text-contrast' />
             {tour.fixedPrice && (
-              <h2 className="text-2xl text-contrast">
+              <h2 className="text-xl md:text-2xl text-contrast">
                 {formatPrice(tour.fixedPrice[0], tour.fixedPrice[1])}
               </h2>
             )}
@@ -70,7 +70,7 @@ export default function TourInfo({
               </h2>
             )}
             <h2
-              className={`${tour.fixedPrice ? 'hidden' : 'text-2xl text-contrast'}`}
+              className={`${tour.fixedPrice ? 'hidden' : 'text-xl md:text-2xl text-contrast'}`}
             >
               {formatPrice(tour.price[0], tour.price[1])}
             </h2>

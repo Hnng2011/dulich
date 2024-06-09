@@ -31,20 +31,20 @@ const news: NewInfo[] = [
 function FifthHeroContent() {
   return (
     <Container>
-      <h2 className='uppercase text-3xl font-black font-bitter text-center'>Tin khuyến mãi</h2>
+      <h2 className='uppercase text-2xl md:text-3xl font-black font-bitter text-center'>Tin khuyến mãi</h2>
       <Container className='h-12' />
-      <Flex gap={6} align='start'>
+      <Flex gap={6} align='start' className='flex-col md:flex-row'>
         {news.map((inf, index) =>
-          <Flex col gap={6} align='start' key={index} className='basis-1/3 h-full'>
+          <Flex col gap={6} align='start' key={index} className='w-full md:basis-1/3 h-full'>
             <div className='aspect-4/3 w-full relative'>
               <Image alt="news" src={inf.img} fill />
             </div>
             <Flex col gap={2}>
-              <h3 className='font-semibold text-lg line-clamp-2'>
+              <h3 className='font-semibold text-base md:text-lg line-clamp-2'>
                 {inf.name}
               </h3>
               <Flex justify='start' align='center' className='w-full'>
-                <p className='text-gray-600'>{convertToLocalDate(inf.time)} | Tác giả: {inf.author}</p>
+                <p className='text-gray-600 text-sm md:text-base'>{convertToLocalDate(inf.time)} | Tác giả: {inf.author}</p>
               </Flex>
             </Flex>
           </Flex>
@@ -52,9 +52,9 @@ function FifthHeroContent() {
       </Flex>
       <Container className='h-4' />
       <Link href="">
-        <Flex justify="end" gap={1.5} className="text-lg pr-2">
+        <Flex justify="end" gap={1.5} className="text-base md:text-lg pr-2">
           <p>Xem thêm</p>
-          <ArrowRightIcon className="h-5 w-5" />
+          <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Flex>
       </Link>
       <Container className='h-24' />

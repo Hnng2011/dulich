@@ -94,7 +94,7 @@ function ThirdHeroContent() {
         <h2 className="uppercase text-2xl md:text-3xl font-black text-opacity-95 font-bitter">
           HOT DEAL
         </h2>
-        <p className="w-1/3 text-sm text-right text-muted-foreground">
+        <p className="w-1/2 md:w-1/3 text-sm text-right text-muted-foreground">
           Đắm chìm trong các cảnh đẹp độc nhất , cuộc sống thú vị của Việt Nam
         </p>
       </Flex>
@@ -105,7 +105,7 @@ function ThirdHeroContent() {
             {tour.map((tou, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
@@ -122,9 +122,9 @@ function ThirdHeroContent() {
       </Container>
       <Container className="h-6" />
       <Link href="">
-        <Flex justify="end" gap={1.5} className="text-lg pr-2">
+        <Flex justify="end" gap={1.5} className="text-base md:text-lg pr-2">
           <p>Xem thêm</p>
-          <ArrowRightIcon className="h-5 w-5" />
+          <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Flex>
       </Link>
 
@@ -134,7 +134,7 @@ function ThirdHeroContent() {
         <h2 className="uppercase text-3xl font-black text-opacity-95 font-bitter">
           YÊU THÍCH
         </h2>
-        <p className="w-1/3 text-sm text-right text-muted-foreground">
+        <p className="w-1/2 md:w-1/3 text-sm text-right text-muted-foreground">
           Đắm chìm trong các cảnh đẹp độc nhất , cuộc sống thú vị của Việt Nam
         </p>
       </Flex>
@@ -145,7 +145,7 @@ function ThirdHeroContent() {
             {tour.map((tou, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
@@ -163,9 +163,9 @@ function ThirdHeroContent() {
       <Container className="h-6" />
 
       <Link href="">
-        <Flex justify="end" gap={1.5} className="text-lg pr-2">
+        <Flex justify="end" gap={1.5} className="text-base md:text-lg pr-2">
           <p>Xem thêm</p>
-          <ArrowRightIcon className="h-5 w-5" />
+          <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Flex>
       </Link>
     </Container>
