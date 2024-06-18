@@ -34,7 +34,7 @@ function SecondHeroContent() {
   return (
     <Container>
       <Flex col className="gap-6 lg:flex-row">
-        <Flex col={true} className="gap-6">
+        <Flex col className="gap-6">
           {title.map((titl, index) =>
             index <= 2 ? (
               <div
@@ -44,14 +44,13 @@ function SecondHeroContent() {
                 {titl.paragraph.toString()}
               </div>
             ) : (
-              <Grid key={index} className="grid-cols-2 xl:grid-cols-3 w-full gap-x-6 md:gap-x-60 xl:gap-x-28 gap-y-2">
+              <Grid key={index} className="grid-cols-2 md:grid-cols-3 w-full gap-y-2">
                 {Array.isArray(titl.paragraph) &&
                   titl.paragraph.map((tit, idx) => (
                     <Flex
                       key={index + idx}
-                      justify="between"
-                      className="gap-2 w-full font-medium text-sm"
-                    >
+                      justify={idx % 2 !== 0 ? 'end' : 'start'}
+                      className={`gap-2 w-full font-medium text-sm ${(idx === 0 || idx === 3) ? 'md:justify-start' : (idx === 1 || idx === 4) ? 'md:justify-center' : 'md:justify-end'}`}>
                       <Airplane className="text-subtext fill-subtext h-3 w-3" />
                       <p>{tit.content}</p>
                     </Flex>
@@ -71,7 +70,7 @@ function SecondHeroContent() {
           />
         </Container>
       </Flex>
-    </Container>
+    </Container >
   )
 }
 

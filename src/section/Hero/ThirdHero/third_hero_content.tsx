@@ -12,82 +12,14 @@ import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import { ArrowRightIcon } from 'lucide-react'
 import Autoplay from "embla-carousel-autoplay"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useGetTours } from '@/api/get_data'
 
-const tour: TourInfo[] = [
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [1000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [3000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [2000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'fav',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [2000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [2000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [2000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-  {
-    img: 'https://bizweb.dktcdn.net/thumb/large/100/319/254/products/16.jpg?v=1529382039330',
-    name: 'Đà Lạt Mộng Mơ - Nha Trang Biển Xanh - Da Nang dep nhu ngay tho',
-    timeStart: new Date(Date.now()),
-    timeEnd: new Date(Date.now() + Date.now()),
-    transport: ['plane', 'boat'],
-    price: [2000000, 'VND'],
-    fixedPrice: [500000, 'VND'],
-    tag: 'hot',
-  },
-]
 
 function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
+  const { data, error, isValidating } = useGetTours()
+
   return (
     <Container>
       <Flex align='start' className="-skew-x-6">
@@ -102,21 +34,28 @@ function ThirdHeroContent() {
       <Container className="p-0">
         <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
-            {tour.map((tou, index) => (
+            {data ? data.map((tou, index) => (
               <CarouselItem
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href="" className="">
+                <Link href={`/tour/${tou.tour_id}`} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
                   />
                 </Link>
               </CarouselItem>
-            ))}
+            )) : Array.from({ length: 4 }, (_, index) =>
+              <CarouselItem
+                key={index}
+                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+              >
+                <Skeleton className='w-full h-[27rem] md:h-[24rem]' />
+              </CarouselItem>
+            )}
           </CarouselContent>
         </Carousel>
       </Container>
@@ -142,21 +81,28 @@ function ThirdHeroContent() {
       <Container className="p-0">
         <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
-            {tour.map((tou, index) => (
+            {data ? data.map((tou, index) => (
               <CarouselItem
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href="" className="">
+                <Link href={`/tour/${tou.tour_id}`} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
                   />
                 </Link>
               </CarouselItem>
-            ))}
+            )) : Array.from({ length: 4 }, (_, index) =>
+              <CarouselItem
+                key={index}
+                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+              >
+                <Skeleton className='w-full h-[27rem] md:h-[24rem]' />
+              </CarouselItem>
+            )}
           </CarouselContent>
         </Carousel>
       </Container>

@@ -9,20 +9,20 @@ import { Button } from "@/components/ui/button"
 
 const news: NewInfo[] = [
   {
-    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
-    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết một lần trong đời ',
+    image_link: ['https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267'],
+    title: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết một lần trong đời ',
     author: 'Phi Hùng',
     time: new Date(Date.now())
   },
   {
-    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
-    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
+    image_link: ['https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267'],
+    title: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
     author: 'Phi Hùng',
     time: new Date(Date.now())
   },
   {
-    img: 'https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267',
-    name: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
+    image_link: ['https://bizweb.dktcdn.net/100/319/254/articles/nui-than-tai-1.jpg?v=1529378837267'],
+    title: 'Kinh Nghiệm đi du lịch sapa ai cũng nên biết',
     author: 'Phi Hùng',
     time: new Date(Date.now())
   },
@@ -33,15 +33,15 @@ function FifthHeroContent() {
     <Container>
       <h2 className='uppercase text-2xl md:text-3xl font-black font-bitter text-center'>Tin khuyến mãi</h2>
       <Container className='h-12' />
-      <Flex gap={6} align='start' className='flex-col md:flex-row'>
+      <Flex col gap={6} align='start' className='md:flex-row'>
         {news.map((inf, index) =>
           <Flex col gap={6} align='start' key={index} className='w-full md:basis-1/3 h-full'>
             <div className='aspect-4/3 w-full relative'>
-              <Image alt="news" src={inf.img} fill />
+              <Image alt="news" src={inf.image_link[0]} fill />
             </div>
             <Flex col gap={2}>
               <h3 className='font-semibold text-base md:text-lg line-clamp-2'>
-                {inf.name}
+                {inf.title}
               </h3>
               <Flex justify='start' align='center' className='w-full'>
                 <p className='text-gray-600 text-sm md:text-base'>{convertToLocalDate(inf.time)} | Tác giả: {inf.author}</p>

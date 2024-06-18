@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode, HTMLProps } from 'react'
 
-interface FlexProp {
+interface FlexProp extends HTMLProps<HTMLDivElement> {
   col?: boolean
   gap?: number
   justify?:
@@ -13,8 +13,7 @@ interface FlexProp {
   | 'stretch'
   | undefined
   align?: 'center' | 'start' | 'end' | 'baseline' | 'stretch' | undefined
-  children?: ReactNode
-  className?: string
+  children?: ReactNode,
 }
 
 export default function Flex(props: FlexProp) {
@@ -58,11 +57,12 @@ export default function Flex(props: FlexProp) {
 
   const gap = props.gap ? `gap-${props.gap}` : 'gap-0'
 
-  const col = props.col ? 'flex-col' : ''
+  const column = props?.col === true ? 'flex-col' : ''
 
   return (
     <div
-      className={`flex ${align()} ${justify()} ${gap} ${col} ${props.className}`}
+      {...props}
+      className={`flex ${align()} ${justify()} ${gap} ${column} ${props.className}`}
     >
       {props.children}
     </div>

@@ -1,4 +1,4 @@
-export function convertToLocalDate(date : Date) {    
+export function convertToLocalDate(date: Date) {
     const day = date.getDate();
     const month = date.getMonth() + 1;
 
@@ -7,7 +7,7 @@ export function convertToLocalDate(date : Date) {
     return formattedDate;
 }
 
-export function countDays(dateStart : Date, dateEnd : Date) {
+export function countDays(dateStart: Date, dateEnd: Date) {
     const start = dateStart.getDate();
     const end = dateEnd.getDate();
     const differenceInTime = end - start;

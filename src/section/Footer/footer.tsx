@@ -38,7 +38,7 @@ const Footer = () => {
                         </Flex>
                         <Flex col gap={3} className='w-full md:basis-1/3 lg:basis-1/4  text-sm' align='start'>
                             <h2 className='font-black text-xl font-bitter'>Về chúng tôi</h2>
-                            <Link href=''>Dịch vụ cỦa chúng tôi</Link>
+                            <Link href=''>Dịch vụ của chúng tôi</Link>
                             <Link href=''>Tour trong nước</Link>
                             <Link href=''>Tour nước ngoài</Link>
                             <Link href=''>Tin tức</Link>
@@ -57,7 +57,7 @@ const Footer = () => {
             </Flex>
             <Container className='h-full md:h-12'>
                 <Flex className='h-full flex-col md:flex-row gap-4'>
-                    <p>© Bản quyền thuộc về <Link href=''>Lu Phi Hùng</Link></p>
+                    <p>© Created by : <Link href=''>Lu Phi Hùng</Link></p>
 
                     <Flex gap={2}>
                         <Facebook />

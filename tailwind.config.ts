@@ -28,6 +28,10 @@ const config = {
       },
     },
     extend: {
+      direction: {
+        ltr: 'ltr',
+        rtl: 'rtl',
+      },
       aspectRatio: {
         '5/2': '5 / 2',
         '4/3': '4 / 3',

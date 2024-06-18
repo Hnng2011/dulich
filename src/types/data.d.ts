@@ -1,7 +1,8 @@
-interface APIResponse<T> {
-  status: number | null
-  message: string | null
-  data: T
+interface APIResponseSWR<T> {
+  data: T | undefined
+  error: any
+  isValidating: boolean
+  mutate: KeyedMutator<T>
 }
 
 interface ResponseImage {
@@ -10,21 +11,24 @@ interface ResponseImage {
 }
 
 interface TourInfo {
-  img: string
-  name: string
-  timeStart: Date
+  _id: string
+  image_link: string[]
+  title: string
+  start_date: Date
   timeEnd: Date
   transport: Array<string>
-  price: [number, Currency]
-  fixedPrice?: [number, Currency]
-  tag?: 'hot' | 'fav'
+  price_after_discount: number
+  price_before_discount?: number
+  slot: number
+  standard: string
+  detail: string
+  tour_id: string
+  // tag?: 'hot' | 'fav'
 }
 
-interface NewInfo
-  extends Omit<
-    TourInfo,
-    'timeStart' | 'timeEnd' | 'transport' | 'price' | 'fixedPrice'
-  > {
+interface NewInfo {
+  title: string
+  image_link: string[]
   time: Date
   author: string
 }

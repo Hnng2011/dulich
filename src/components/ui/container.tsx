@@ -1,21 +1,21 @@
 'use client'
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, HTMLProps, useEffect, useRef, useState } from "react";
 
-interface FlexProp {
-    children?: ReactNode,
-    className?: string
+interface ContainerProp extends HTMLProps<HTMLDivElement> {
+    children?: ReactNode;
+    center?: boolean;
 }
 
-export default function Container(props: FlexProp) {
+export default function Container(props: ContainerProp) {
     const container = useRef<HTMLDivElement>(null);
     const isFixed: boolean | undefined = props.className?.includes('fixed');
     const [center, setCenter] = useState<number>(0);
 
     useEffect(() => {
-        if (typeof window !== 'undefined') { // Ensure window is defined
+        if (typeof window !== 'undefined') {
             const resizeHandler = () => {
-                if (isFixed && container.current) {
+                if (isFixed && container.current && (props.center || true)) {
                     const screenWidth = window.innerWidth;
                     const containerWidth = container.current.offsetWidth;
                     if (containerWidth && screenWidth > containerWidth) {
@@ -25,11 +25,11 @@ export default function Container(props: FlexProp) {
             };
 
             window.addEventListener('resize', resizeHandler);
-            resizeHandler(); // Trigger initially to set the correct position
+            resizeHandler();
 
             return () => window.removeEventListener('resize', resizeHandler);
         }
-    }, [isFixed]); // Only re-run the effect if isFixed changes
+    }, [isFixed, props.center]); // Only re-run the effect if isFixed changes
 
     return (
         <div ref={container} style={{ left: `${center}px` }} className={`${props.className} container w-full mx-auto`}>

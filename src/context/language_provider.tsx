@@ -1,63 +1,34 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from 'react';
+import { useGetTranslation } from '@/api/get_data';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-const LanguageContext = createContext({
+
+const LanguageContext = createContext<LanguageContextType>({
     language: 'vn',
-    updateLanguage: (lang: string) => { }
+    updateLanguage: (lang: LanguageType) => { },
+    t: null
 });
 
-const getCurrentLanguage = () => {
+const getCurrentLanguage = (): LanguageType => {
     if (typeof window !== 'undefined') {
         const storedLang = localStorage.getItem('domain_lang');
         if (!storedLang) {
-            localStorage.setItem('domain_lang', 'en');
-            return 'vn';
+            localStorage.setItem('domain_lang', 'vn');
+            return 'vn'
         }
-        return storedLang;
+
+        return storedLang as LanguageType
     }
-    return 'vn'; // Fallback for server-side rendering
-};
 
-export const useTranslation = () => {
-    const { language } = useLanguage();
-    const [translations, setTranslations] = useState<any>(null);
-
-    useEffect(() => {
-        const loadTranslations = async () => {
-            try {
-                const response = await fetch(`/locales/${language}/common.json`);
-                const data = await response.json();
-                setTranslations(data);
-            } catch (error) {
-                console.error('Failed to load language file:', error);
-            }
-        };
-
-        loadTranslations();
-    }, [language]);
-
-    return useMemo(() => translations, [translations]);
+    return 'vn'
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-    const [language, setLanguage] = useState(getCurrentLanguage());
+    const [language, setLanguage] = useState<LanguageType>(getCurrentLanguage());
+    const { data } = useGetTranslation(language)
 
-    useEffect(() => {
-        const handleStorageChange = () => {
-            setLanguage(getCurrentLanguage());
-        };
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('storage', handleStorageChange);
-
-            return () => {
-                window.removeEventListener('storage', handleStorageChange);
-            };
-        }
-    }, []);
-
-    const updateLanguage = (lang: string) => {
+    const updateLanguage = (lang: LanguageType) => {
         if (typeof window !== 'undefined') {
             localStorage.setItem('domain_lang', lang);
             setLanguage(lang);
@@ -65,7 +36,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     };
 
     return (
-        <LanguageContext.Provider value={{ language, updateLanguage }}>
+        <LanguageContext.Provider value={{ language, updateLanguage, t: data }}>
             {children}
         </LanguageContext.Provider>
     );

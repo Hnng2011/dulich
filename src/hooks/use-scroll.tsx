@@ -2,17 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-export default function useScroll() {
-    const [process, setProcess] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
+export default function useScroll(): boolean {
+    const [process, setProcess] = useState<boolean>(typeof window !== 'undefined' ? window.scrollY > 0 ? true : false : false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setProcess(window.scrollY);
+            setProcess(window.scrollY > 0 ? true : false);
         };
 
         window.addEventListener('scroll', handleScroll);
-
-
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
