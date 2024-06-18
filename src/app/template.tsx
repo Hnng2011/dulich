@@ -8,6 +8,7 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbS
 import { usePathname } from "next/navigation"
 import Container from "@/components/ui/container"
 import { useLanguage } from "@/context/language_provider"
+import extractPathname from "@/utils/extract-uri"
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const pathname = usePathname()
@@ -25,7 +26,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                                 <>
                                     <BreadcrumbItem key={link} className='text-muted-forground'>
                                         <BreadcrumbLink asChild>
-                                            <Link href="/">{t?.header.navigate.home}</Link>
+                                            <Link href="/">{t?.header?.navigate?.home}</Link>
                                         </BreadcrumbLink>
                                     </BreadcrumbItem >
                                     <BreadcrumbSeparator />
@@ -34,7 +35,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                                 <>
                                     <BreadcrumbItem key={link} className={idx === navigate.length - 1 ? 'text-maintext' : 'text-muted-forground'}>
                                         <BreadcrumbLink asChild>
-                                            <Link href={idx === navigate.length - 1 ? pathname : '/' + link}>{t?.header.navigate[link] || link}</Link>
+                                            <Link href={idx === navigate.length - 1 ? pathname : '/' + link}>{t?.header?.navigate?.[link] || extractPathname(link, 0)}</Link>
                                         </BreadcrumbLink>
                                     </BreadcrumbItem>
                                     {idx !== navigate.length - 1 && <BreadcrumbSeparator />}

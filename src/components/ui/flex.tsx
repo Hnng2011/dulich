@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { ReactNode, HTMLProps } from 'react'
 
 interface FlexProp extends HTMLProps<HTMLDivElement> {
@@ -62,7 +63,7 @@ export default function Flex(props: FlexProp) {
   return (
     <div
       {...props}
-      className={`flex ${align()} ${justify()} ${gap} ${column} ${props.className}`}
+      className={cn(`flex ${align()} ${justify()} ${gap} ${column}`, props.className)}
     >
       {props.children}
     </div>

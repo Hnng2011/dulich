@@ -1,10 +1,11 @@
 'use client'
 
 import { ReactNode, HTMLProps, useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils"
 
 interface ContainerProp extends HTMLProps<HTMLDivElement> {
-    children?: ReactNode;
-    center?: boolean;
+    children?: ReactNode
+    center?: boolean
 }
 
 export default function Container(props: ContainerProp) {
@@ -32,7 +33,7 @@ export default function Container(props: ContainerProp) {
     }, [isFixed, props.center]); // Only re-run the effect if isFixed changes
 
     return (
-        <div ref={container} style={{ left: `${center}px` }} className={`${props.className} container w-full mx-auto`}>
+        <div ref={container} style={{ left: `${center}px` }} className={cn(` container w-full mx-auto`, props.className)}>
             {props.children}
         </div>
     );

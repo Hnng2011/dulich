@@ -7,6 +7,7 @@ interface Navigation {
 export const HREFS: Navigation = {
     header: {
         home: '/',
-        about: '/about'
+        about: '/about',
+        tour: '/tour'
     }
 }

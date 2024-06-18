@@ -14,9 +14,10 @@ interface TourInfo {
   _id: string
   image_link: string[]
   title: string
-  start_date: Date
-  timeEnd: Date
-  transport: Array<string>
+  destination: string
+  start_date: string
+  // timeEnd: Date
+  // transport: Array<string>
   price_after_discount: number
   price_before_discount?: number
   slot: number

@@ -7,6 +7,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi
 } from '@/components/ui/carousel'
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
@@ -18,7 +19,7 @@ import { useGetTours } from '@/api/get_data'
 
 function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
-  const { data, error, isValidating } = useGetTours()
+  const { data } = useGetTours()
 
   return (
     <Container>
@@ -32,16 +33,16 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
+        <Carousel opts={{ loop: true }} plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
             {data ? data.map((tou, index) => (
               <CarouselItem
                 key={index}
-                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4 rounded-md"
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={`/tour/${tou.tour_id}`} className="">
+                <Link href={`/tour/name=${tou.title}&id=${tou.tour_id}`} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
@@ -53,7 +54,7 @@ function ThirdHeroContent() {
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Skeleton className='w-full h-[27rem] md:h-[24rem]' />
+                <Skeleton className='w-full lg:max-w-[324px] md:h-[402px] rounded' />
               </CarouselItem>
             )}
           </CarouselContent>
@@ -79,7 +80,7 @@ function ThirdHeroContent() {
       </Flex>
       <Container className="h-6" />
       <Container className="p-0">
-        <Carousel plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
+        <Carousel opts={{ loop: true }} plugins={[Autoplay({ stopOnInteraction: false })]} className="w-full">
           <CarouselContent>
             {data ? data.map((tou, index) => (
               <CarouselItem
@@ -88,7 +89,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={`/tour/${tou.tour_id}`} className="">
+                <Link href={`/tour/?name=${tou.title}&id=${tou.tour_id}`} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
@@ -100,7 +101,7 @@ function ThirdHeroContent() {
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Skeleton className='w-full h-[27rem] md:h-[24rem]' />
+                <Skeleton className='w-full lg:max-w-[324px] md:h-[402px]' />
               </CarouselItem>
             )}
           </CarouselContent>

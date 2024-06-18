@@ -8,9 +8,10 @@
       "contact": "Contact"
     }
   },
-  "banner": {
-    "hottour": "Hot Tours",
-    "korean": "Korean Tours",
-    "vietnam": "Vietnam Tours"
+  "tour": {
+    "detail": {
+      "slot": "Available seat",
+      "action": "Book now"
+    }
   }
 }

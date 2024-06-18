@@ -8,14 +8,15 @@
       "contact": "Liên hệ"
     }
   },
-  "banner": {
-    "hottour": "Hot Tours",
-    "korean": "Korean Tours",
-    "vietnam": "Vietnam Tours"
-  },
   "hero": {
     "first": null,
     "second": null,
     "third": null
+  },
+  "tour": {
+    "detail": {
+      "slot": "Số ghế còn sẵn",
+      "action": "Đặt chỗ ngay"
+    }
   }
 }

@@ -57,7 +57,7 @@ export default function Header() {
         <>
             {
                 t &&
-                <Container className={`fixed bg-transparent z-20 ${pathname === '/' && 'text-white'} ${process && '!text-maintext'} text-base md:text-lg font-spin ${process && 'before:translate-y-0'} ${pathname === '/' ? '' : 'before:translate-y-0'} before:hidden lg:before:flex  before:h-20 before:-translate-y-full before:duration-300 before:fixed before:inset-0 before:w-full before:bg-subbackground before:z-20`}>
+                <Container className={`fixed bg-transparent z-20 ${pathname === '/' && 'text-white'} ${process && '!text-maintext'} text-base md:text-lg font-spin  ${pathname === '/' && !process ? 'before:-translate-y-full' : 'before:translate-y-0'} before:hidden lg:before:flex  before:h-20 before:duration-300 before:fixed before:inset-0 before:w-full before:bg-subbackground before:z-20`}>
                     <Flex align="start" className={`w-full h-20 z-20 relative hidden lg:flex`}>
                         <Flex gap={8} align="start" className="h-full">
                             <Logo className={`h-${20 + 12}`} />
