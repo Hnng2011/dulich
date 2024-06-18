@@ -17,7 +17,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     return (
         <>
             <Header />
-            {pathname !== '/' && <Container className="h-20 pt-40 pb-10">
+            {pathname !== '/' && t && <Container className="h-20 pt-40 pb-10">
                 <Breadcrumb>
                     <BreadcrumbList className='text-xl'>
                         {
