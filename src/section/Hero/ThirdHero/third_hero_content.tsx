@@ -89,7 +89,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={`/tour/?name=${tou.title}&id=${tou.tour_id}`} className="">
+                <Link href={`/tour/name=${tou.title}&id=${tou.tour_id}`} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
