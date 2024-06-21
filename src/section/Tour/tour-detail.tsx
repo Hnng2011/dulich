@@ -50,7 +50,7 @@ const TourDetail = ({ tour_id }: { tour_id: string }) => {
             <Lightbox images={data?.image_link} />
             <Container className='my-12'>
                 {data &&
-                    <Flex col align='start' className='gap-12 md:gap-40 md:flex-row'>
+                    <Flex col align='start' className='gap-12 lg:gap-40 md:flex-row'>
                         <Container className='basis-1/2 px-0'>
                             <Image onClick={() => requestOpen()} src={data.image_link[current]} fill alt='tour info' className='!static aspect-video cursor-pointer' />
                             <Container className='h-4' />

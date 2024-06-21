@@ -59,12 +59,11 @@ const Lightbox: React.FC<LightboxProp> = (props) => {
         >
             <Container className='relative h-full w-full'>
                 <X onClick={requestClose} className='cursor-pointer h-8 w-8 right-6 top-4 absolute' />
-                <Flex gap={8} justify='center' col className='h-full'>
+                <Flex gap={4} justify='center' col className='h-full md:gap-8'>
                     {props.images &&
                         <>
-                            <Image src={props.images[current]} alt='light-box' fill className='!static max-w-screen-md max-h-96 object-cover ' />
-
-                            <Carousel setApi={setApi} opts={{ loop: true, align: 'start' }} className="w-full  max-w-screen-md" >
+                            <Image src={props.images[current]} alt='light-box' fill className='!static !w-[82%] lg:w-full max-w-screen-md max-h-64 md:max-h-96 object-fill lg:object-cover' />
+                            <Carousel setApi={setApi} opts={{ loop: true, align: 'start' }} className="w-[82%] lg:w-full md:max-w-screen-md" >
                                 <CarouselContent>
                                     {props.images?.map((src, index) => (
                                         <CarouselItem key={index} onClick={() => setCurrent(index)} className='basis-1/4 h-24'>
