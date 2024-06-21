@@ -1,7 +1,8 @@
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
-import { convertToLocalDate, countDays } from '@/utils/format_date'
+import { convertToLocalDate } from '@/utils/format_date'
 import { formatPrice } from '@/utils/format_price'
 import { Users, BadgePercent, Clock } from 'lucide-react'
 import Image from 'next/image'
@@ -17,7 +18,7 @@ export default function TourInfo({
 }) {
   return (
     <Card
-      className={`relative rounded-md overflow-hidden lg:max-w-[324px] ${isHover ? '' : 'blur-sm'} duration-300`}
+      className={`relative rounded-md overflow-hidden ${isHover ? '' : 'blur-sm'} duration-300`}
     >
       <Image src={tour.image_link[0]} fill alt="test" className="max-h-72 md:max-h-64 w-full" />
       {/* {tour.tag === 'hot' ? (

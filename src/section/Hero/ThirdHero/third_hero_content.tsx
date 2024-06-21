@@ -7,7 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  type CarouselApi
 } from '@/components/ui/carousel'
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'

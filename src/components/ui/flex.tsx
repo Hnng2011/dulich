@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { ReactNode, HTMLProps } from 'react'
+import React, { ReactNode, HTMLProps } from 'react'
 
 interface FlexProp extends HTMLProps<HTMLDivElement> {
   col?: boolean
@@ -17,7 +17,7 @@ interface FlexProp extends HTMLProps<HTMLDivElement> {
   children?: ReactNode,
 }
 
-export default function Flex(props: FlexProp) {
+const Flex: React.FC<FlexProp> = (props) => {
   const align = () => {
     switch (props.align) {
       case 'center':
@@ -56,16 +56,20 @@ export default function Flex(props: FlexProp) {
     }
   }
 
-  const gap = props.gap ? `gap-${props.gap}` : 'gap-0'
+  const gap = props.gap && `gap-${props.gap}`
 
-  const column = props?.col === true ? 'flex-col' : ''
+  const column = props?.col === true && 'flex-col'
+
+  const flexClassName = cn('flex', align(), justify(), gap, column, props.className)
 
   return (
     <div
       {...props}
-      className={cn(`flex ${align()} ${justify()} ${gap} ${column}`, props.className)}
+      className={flexClassName}
     >
       {props.children}
     </div>
   )
 }
+
+export default Flex

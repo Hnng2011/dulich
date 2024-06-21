@@ -44,7 +44,7 @@ function SecondHeroContent() {
                 {titl.paragraph.toString()}
               </div>
             ) : (
-              <Grid key={index} className="grid-cols-2 md:grid-cols-3 w-full gap-y-2">
+              <Grid template='col' count={2} key={index} className="md:!grid-cols-3 w-full gap-y-2">
                 {Array.isArray(titl.paragraph) &&
                   titl.paragraph.map((tit, idx) => (
                     <Flex

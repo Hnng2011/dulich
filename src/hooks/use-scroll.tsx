@@ -1,14 +1,16 @@
 'use client'
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useScroll(): boolean {
-    const [process, setProcess] = useState<boolean>(typeof window !== 'undefined' ? window.scrollY > 0 ? true : false : false);
+    const [process, setProcess] = useState<boolean>(false);
 
     useEffect(() => {
         const handleScroll = () => {
             setProcess(window.scrollY > 0 ? true : false);
         };
+
+        handleScroll()
 
         window.addEventListener('scroll', handleScroll);
 
@@ -17,6 +19,5 @@ export default function useScroll(): boolean {
         };
     }, []);
 
-    // Use useMemo to return the memoized process value
-    return useMemo(() => process, [process]);
+    return process
 }

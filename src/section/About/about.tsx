@@ -1,3 +1,4 @@
+import React from 'react';
 import Container from '@/components/ui/container';
 import './styles.css';
 import Image from "next/image"
@@ -35,7 +36,7 @@ const source2 = [
 export default function About() {
     return (
         <div className='w-full h-full box-content'>
-            <Container className='py-12' >
+            <Container className='pb-12 pt-6' >
                 <Flex col className='pb-12'>
                     <h1 className='text-2xl md:text-3xl font-black font-bitter mb-8'>Dịch vụ Du lịch và Lữ hành</h1>
                     <p className='mb-4 text-justify normal-case'>
@@ -47,7 +48,7 @@ export default function About() {
                         Hãy để chúng tôi hướng dẫn bạn khám phá thế giới, tạo ra những kỷ niệm vĩnh cửu và chia sẻ những cảm xúc khó quên trên mỗi hành trình. Hãy đồng hành cùng chúng tôi và khám phá những điều mới mẻ mỗi ngày!</p>
                 </Flex>
                 <Flex className='h-[600px] gap-3'>
-                    <Grid column={2} className='w-full h-60 gap-3 place-content-center'>
+                    <Grid template='col' count={2} gap={3} className='w-full h-60 place-content-center'>
                         {
                             source.map((src, index) => {
                                 return (
@@ -59,7 +60,7 @@ export default function About() {
                             })
                         }
                     </Grid>
-                    <Grid className='w-full h-60 gap-3 place-content-center'>
+                    <Grid template='col' count={2} gap={3} className='w-full h-60 place-content-center'>
                         {
                             source2.map((src, index) => {
                                 return (

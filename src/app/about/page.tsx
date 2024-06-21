@@ -1,4 +1,4 @@
-import Container from '@/components/ui/container';
+import React from 'react';
 import About from '@/section/About/about';
 
 export default function Home() {
