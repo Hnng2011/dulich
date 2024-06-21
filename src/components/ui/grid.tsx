@@ -16,6 +16,8 @@ const Grid: React.FC<GridProps> = (props) => {
     switch (props.template) {
       case 'row':
         switch (props.count) {
+          case 1:
+            return "grid-rows-1"
           case 2:
             return "grid-rows-2"
           case 3:
@@ -30,6 +32,8 @@ const Grid: React.FC<GridProps> = (props) => {
 
       case 'col':
         switch (props.count) {
+          case 1:
+            return "grid-cols-1"
           case 2:
             return "grid-cols-2"
           case 3:

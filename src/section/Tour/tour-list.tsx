@@ -73,7 +73,7 @@ const TourList = () => {
 
             <Divider />
 
-            <Grid template='col' count={4} gap={2} className='pt-6'>
+            <Grid template='col' count={1} gap={2} className='pt-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                 {data ?
                     data.map((tou, index) => (
                         <Link key={index} href={`/tour/name=${tou.title}&id=${tou.tour_id}`} className='w-full'>
