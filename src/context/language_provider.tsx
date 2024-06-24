@@ -1,14 +1,10 @@
 'use client'
 
-import { useGetTranslation } from '@/api/get_data';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
+import { create } from 'zustand'
+import en from '../../public/locales/en/common.json'
+import vn from '../../public/locales/vn/common.json'
 
-
-const LanguageContext = createContext<LanguageContextType>({
-    language: 'vn',
-    updateLanguage: (lang: LanguageType) => { },
-    t: null
-});
 
 const getCurrentLanguage = (): LanguageType => {
     if (typeof window !== 'undefined') {
@@ -24,22 +20,31 @@ const getCurrentLanguage = (): LanguageType => {
     return 'vn'
 };
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-    const [language, setLanguage] = useState<LanguageType>(getCurrentLanguage());
-    const { data } = useGetTranslation(language)
+const useStoreLanguage = create<LanguageState>(
+    (set) =>
+    ({
+        language: getCurrentLanguage(),
+        updateLanguage: (newLang) => set({ language: newLang }),
+        setT: (newTrans) => set({ t: newTrans }),
+        t: null
+    }))
 
-    const updateLanguage = (lang: LanguageType) => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('domain_lang', lang);
-            setLanguage(lang);
-        }
-    };
+export const useLanguage = () => {
+    const { language, updateLanguage, setT, t } = useStoreLanguage((state) =>
+        ({ language: state.language, updateLanguage: state.updateLanguage, setT: state.setT, t: state.t }))
+
+    return { language, updateLanguage, t, setT }
+}
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+    const { language, setT } = useLanguage();
+
+    useEffect(() => { setT(language === 'en' ? en : vn) }, [language])
 
     return (
-        <LanguageContext.Provider value={{ language, updateLanguage, t: data }}>
+        <>
             {children}
-        </LanguageContext.Provider>
+        </>
     );
 };
 
-export const useLanguage = () => useContext(LanguageContext);

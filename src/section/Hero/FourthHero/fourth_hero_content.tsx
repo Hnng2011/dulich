@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import React from 'react'
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import Forest from '../../../../public/assets/img/forest.png'
@@ -25,8 +26,8 @@ const rating = [
 
 function FourthdHeroContent() {
   return (
-    <div className="relative w-full h-full xl:aspect-5/2">
-      <Image src={Forest} fill alt="forest" />
+    <Container className="relative xl:aspect-5/2">
+      <Image src={Forest} fill alt="forest" className='px-8' />
       <Container className="h-full py-12 lg:py-20">
         <Flex
           justify="center"
@@ -62,7 +63,7 @@ function FourthdHeroContent() {
           </Carousel>
         </Flex>
       </Container>
-    </div>
+    </Container>
   )
 }
 

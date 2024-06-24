@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface APIResponseSWR<T> {
   data: T | undefined
   error: any
@@ -32,4 +33,13 @@ interface NewInfo {
   image_link: string[]
   time: Date
   author: string
+}
+
+interface Token {
+  role: string
+  access_token: string
+  refresh_token: string
+  user_id: string
+  access_token_expired_at: string
+  refresh_token_expired_at: string
 }

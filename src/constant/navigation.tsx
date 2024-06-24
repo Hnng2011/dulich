@@ -1,13 +1,10 @@
-interface Navigation {
-    [key: string]: {
-        [key: string]: string
-    }
-}
-
-export const HREFS: Navigation = {
+export const HREFS = {
     header: {
         home: '/',
         about: '/about',
-        tour: '/tour'
+        tour: '/tour',
+        news: '/news',
+        contact: '/contact',
+        tourid: (id: string) => `/tour/${id}`
     }
 }

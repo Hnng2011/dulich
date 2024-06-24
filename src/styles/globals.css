@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+main {
+  min-height: 100%;
+}
+
 @layer base {
   :root {
     --animate-delay: 0.5s;
@@ -45,7 +51,7 @@
     --sub-text: 63, 114, 175;
     --main-background: 249, 247, 247;
     --sub-background: 219, 226, 239;
-    --contrast : 92.68, 47.06%, 46.67%;
+    --contrast: 92.68, 47.06%, 46.67%;
 
     @font-face {
       font-family: 'Roboto';

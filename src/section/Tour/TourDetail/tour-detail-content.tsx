@@ -20,7 +20,7 @@ import Image from 'next/image'
 import { Lightbox, useLightbox } from '@/components/ui/lightbox'
 import Autoplay from "embla-carousel-autoplay"
 
-const TourDetail = ({ tour_id }: { tour_id: string }) => {
+const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
     const [api, setApi] = useState<CarouselApi>()
     const [current, setCurrent] = useState<number>(0)
     const { requestOpen } = useLightbox()
@@ -48,7 +48,7 @@ const TourDetail = ({ tour_id }: { tour_id: string }) => {
     return (
         <>
             <Lightbox images={data?.image_link} />
-            <Container className='my-12'>
+            <Flex align='start' className='mt-12'>
                 {data &&
                     <Flex col align='start' className='gap-12 lg:gap-40 md:flex-row'>
                         <Container className='basis-1/2 px-0'>
@@ -100,9 +100,9 @@ const TourDetail = ({ tour_id }: { tour_id: string }) => {
                             <Button className='bg-maintext'>{t?.tour.detail.action}</Button>
                         </Flex>
                     </Flex>}
-            </Container>
+            </Flex>
         </>
     )
 }
 
-export default TourDetail
+export default TourDetailContent

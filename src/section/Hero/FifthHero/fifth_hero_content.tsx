@@ -1,3 +1,4 @@
+import React from 'react'
 import Container from '@/components/ui/container'
 import Flex from '@/components/ui/flex'
 import Image from 'next/image'

@@ -1,11 +1,6 @@
-import useSWR from 'swr'
-import fetcher, { fetcherLocale } from './fetcher'
+import useSWR, { preload } from 'swr'
+import fetcher from './fetcher'
 import { useMemo } from 'react';
-
-export function useGetTranslation(locale: Locale) {
-    const { data } = useSWR(`/locales/${locale}/common.json`, fetcherLocale);
-    return { data }
-}
 
 export function useGetTours(): APIResponseSWR<TourInfo[]> {
     const { data, error, isValidating, mutate } = useSWR(`/api/tour`, fetcher);
@@ -19,6 +14,8 @@ export function useGetTours(): APIResponseSWR<TourInfo[]> {
 
     return memoizedValues
 }
+
+export const preloadTour = (id: string) => preload(`/api/tour/${id}`, fetcher)
 
 export function useGetTour(id: string): APIResponseSWR<TourInfo> {
     const { data, error, isValidating, mutate } = useSWR(`/api/tour/${id}`, fetcher);

@@ -14,7 +14,7 @@ import { ArrowRightIcon } from 'lucide-react'
 import Autoplay from "embla-carousel-autoplay"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useGetTours } from '@/api/get_data'
-
+import { HREFS } from '@/constant/navigation'
 
 function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
@@ -41,7 +41,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={`/tour/name=${tou.title}&id=${tou.tour_id}`} className="">
+                <Link href={HREFS.header.tourid(`name=${tou.title}&id=${tou.tour_id}`)} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
@@ -53,7 +53,7 @@ function ThirdHeroContent() {
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Skeleton className='w-full lg:max-w-[324px] md:h-[402px] rounded' />
+                <Skeleton className='w-full md:h-[402px] rounded' />
               </CarouselItem>
             )}
           </CarouselContent>
@@ -88,7 +88,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={`/tour/name=${tou.title}&id=${tou.tour_id}`} className="">
+                <Link href={HREFS.header.tourid(`name=${tou.title}&id=${tou.tour_id}`)} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
@@ -100,7 +100,7 @@ function ThirdHeroContent() {
                 key={index}
                 className="w-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Skeleton className='w-full lg:max-w-[324px] md:h-[402px]' />
+                <Skeleton className='w-full md:h-[402px]' />
               </CarouselItem>
             )}
           </CarouselContent>

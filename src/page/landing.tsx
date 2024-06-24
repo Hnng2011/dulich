@@ -1,3 +1,4 @@
+import React from 'react'
 import FirstHero from '@/section/Hero/first_hero_view'
 import FourthdHero from '@/section/Hero/fourth_hero_view'
 import SecondHero from '@/section/Hero/second_hero_view'
