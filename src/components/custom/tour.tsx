@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
-import { convertToLocalDate } from '@/utils/format_date'
-import { formatPrice } from '@/utils/format_price'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
+import { convertToLocalDate } from '@/lib/utils'
+import { formatPrice } from '@/lib/utils'
 import { Users, BadgePercent, Clock } from 'lucide-react'
 import Image from 'next/image'
 // import Hot from '../../../public/assets/img/tags/hot.png'
@@ -15,6 +15,7 @@ export default function TourInfo({
 }: {
   tour: TourInfo
   isHover?: boolean
+  admin?: boolean
 }) {
   return (
     <Card
@@ -40,7 +41,7 @@ export default function TourInfo({
       )} */}
       <Container className="h-72 md:h-64" />
       <CardHeader className="py-3">
-        <CardTitle className="line-clamp-2 text-maintext">
+        <CardTitle className={"line-clamp-2 text-maintext"}>
           {tour.title}
         </CardTitle>
       </CardHeader>
@@ -65,7 +66,7 @@ export default function TourInfo({
                   {formatPrice(tour.price_after_discount, 'VND')}
                 </h2>
                 <h2>
-                  <s>{formatPrice(tour.price_before_discount, 'VND')}</s>
+                  <del>{formatPrice(tour.price_before_discount, 'VND')}</del>
                 </h2>
               </>
             ) : <h2

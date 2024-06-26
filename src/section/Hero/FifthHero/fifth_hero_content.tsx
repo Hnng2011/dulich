@@ -1,9 +1,9 @@
 import React from 'react'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
 import Image from 'next/image'
 import Link from 'next/link'
-import { convertToLocalDate } from '@/utils/format_date'
+import { convertToLocalDate } from '@/lib/utils'
 import { ArrowRightIcon } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"

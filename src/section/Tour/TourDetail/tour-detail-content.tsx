@@ -1,15 +1,15 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
 import { useGetTour } from '@/api/get_data'
-import { convertToLocalDate } from '@/utils/format_date'
-import { formatPrice } from '@/utils/format_price'
+import { convertToLocalDate } from '@/lib/utils'
+import { formatPrice } from '@/lib/utils'
 import { Clock, MapPinned } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/context/language_provider'
-import { Divider } from '@/components/ui/divider'
+import { Divider } from '@/components/custom/divider'
 import {
     Carousel,
     CarouselContent,
@@ -17,7 +17,7 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel"
 import Image from 'next/image'
-import { Lightbox, useLightbox } from '@/components/ui/lightbox'
+import { Lightbox, useLightbox } from '@/components/custom/lightbox'
 import Autoplay from "embla-carousel-autoplay"
 
 const TourDetailContent = ({ tour_id }: { tour_id: string }) => {

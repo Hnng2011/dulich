@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
 import Forest from '../../../../public/assets/img/forest.png'
 import Image from 'next/image'
 import {

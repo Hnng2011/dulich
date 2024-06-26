@@ -1,6 +1,6 @@
 import React from 'react'
-import Flex from '@/components/ui/flex'
-import Container from '@/components/ui/container'
+import Flex from '@/components/custom/flex'
+import Container from '@/components/custom/container'
 
 const title = [
   {

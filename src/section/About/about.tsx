@@ -1,9 +1,9 @@
 import React from 'react';
-import Container from '@/components/ui/container';
+import Container from '@/components/custom/container';
 import './styles.css';
 import Image from "next/image"
-import Flex from '@/components/ui/flex';
-import Grid from '@/components/ui/grid';
+import Flex from '@/components/custom/flex';
+import Grid from '@/components/custom/grid';
 
 const source = [
     {

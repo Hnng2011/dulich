@@ -3,13 +3,13 @@ import React, { HTMLProps, useEffect, useState } from 'react';
 import { create } from 'zustand'
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
-import Container from './container';
+import Container from '../custom/container';
 import {
     Carousel, CarouselContent, CarouselItem, type CarouselApi, CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from 'next/image';
-import Flex from './flex';
+import Flex from '../custom/flex';
 
 interface LightboxState {
     open: boolean

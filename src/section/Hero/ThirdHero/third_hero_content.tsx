@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import TourInfo from '@/components/Tour/tour'
+import TourInfo from '@/components/custom/tour'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
 import { ArrowRightIcon } from 'lucide-react'
 import Autoplay from "embla-carousel-autoplay"
 import { Skeleton } from "@/components/ui/skeleton"

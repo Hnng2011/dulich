@@ -1,5 +1,5 @@
 import TourList from '@/section/Tour/tour-list-view'
-import Container from '@/components/ui/container'
+import Container from '@/components/custom/container'
 import React from 'react'
 
 const Page = () => {

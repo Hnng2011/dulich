@@ -1,5 +1,5 @@
 import React from "react"
-import Flex from "@/components/ui/flex"
+import Flex from "@/components/custom/flex"
 import { LoaderCircle } from "lucide-react"
 
 export default function Admin() {

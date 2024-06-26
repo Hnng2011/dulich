@@ -1,7 +1,7 @@
 import React from "react";
 import TourDetail from "@/section/Tour/tour-detail-view";
-import extractPathname from "@/utils/extract-uri"
-import Container from "@/components/ui/container";
+import { extractPathname } from "@/lib/utils"
+import Container from "@/components/custom/container";
 
 export default function Page({ params }: { params: { tour_id: string } }) {
     const tourid = extractPathname(params.tour_id, 1)

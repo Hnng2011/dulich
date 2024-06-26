@@ -17,8 +17,8 @@ import {
 
 import './styles.css'
 import { useCallback, useReducer } from "react";
-import Flex from "@/components/ui/flex";
-import Container from "@/components/ui/container";
+import Flex from "@/components/custom/flex";
+import Container from "@/components/custom/container";
 import useScroll from "@/hooks/use-scroll";
 import VN from '../../../public/assets/icon/vn'
 import US from '../../../public/assets/icon/us'

@@ -3,11 +3,11 @@
 import React from "react"
 import { useLanguage } from "@/context/language_provider"
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
-import Container from "@/components/ui/container"
-import Flex from "@/components/ui/flex"
+import Container from "@/components/custom/container"
+import Flex from "@/components/custom/flex"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import extractPathname from "@/utils/extract-uri"
+import { extractPathname } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 
 export default function Template({ children }: { children: React.ReactNode }) {

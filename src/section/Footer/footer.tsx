@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Container from '@/components/ui/container'
-import Flex from '@/components/ui/flex'
+import Container from '@/components/custom/container'
+import Flex from '@/components/custom/flex'
 import React from 'react'
 import Logo from '../../../public/assets/logo/logo'
 import { Phone, MapPin, Mail, Facebook, Youtube, Instagram } from 'lucide-react'
