@@ -14,10 +14,3 @@ interface LanguageState {
   setT: (trans: object) => void
   t: any
 }
-
-interface TokenState {
-  token: Token | undefined | null
-  isSave: boolean
-  setToken: (newToken: Token | null) => void
-  setSave: () => void
-}

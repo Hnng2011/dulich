@@ -138,3 +138,102 @@ body {
 .flex-center {
   @apply flex items-center justify-between text-center;
 }
+
+.tiptap {
+  @apply h-64 w-full border-2 rounded-md outline-none bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:border-black duration-100;
+}
+
+.tiptap ul,
+.tiptap ol {
+  @apply px-4 py-0 my-5 ml-1;
+}
+
+.tiptap ul li p,
+.tiptap ol li p {
+  @apply my-1;
+}
+
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  @apply leading-tight;
+}
+
+.tiptap h1,
+.tiptap h2 {
+  @apply mt-14 mb-6;
+}
+
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  @apply mt-10;
+}
+
+.tiptap h1 {
+  @apply text-2xl;
+}
+
+.tiptap h2 {
+  @apply text-xl;
+}
+
+.tiptap h3 {
+  @apply text-lg;
+}
+
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  @apply text-base;
+}
+
+.tiptap code {
+  @apply bg-purple-200 rounded-md text-black text-sm px-1 py-0.5;
+}
+
+.tiptap pre {
+  @apply bg-black rounded-lg text-white font-mono my-6 px-4 py-3;
+}
+
+.tiptap pre code {
+  @apply bg-transparent text-inherit text-xs p-0;
+}
+
+.tiptap blockquote {
+  @apply border-l-4 border-gray-300 my-6 pl-4;
+}
+
+.tiptap hr {
+  @apply border-0 border-t border-gray-200 my-8;
+}
+
+.bubble-menu,
+.floating-menu {
+  @apply bg-white border border-gray-200 rounded shadow p-1 flex w-fit;
+}
+
+.bubble-menu button,
+.floating-menu button {
+  @apply bg-transparent px-2 py-1 rounded;
+}
+
+.bubble-menu button:hover,
+.floating-menu button:hover {
+  @apply bg-gray-300;
+}
+
+.bubble-menu button.is-active,
+.floating-menu button.is-active {
+  @apply bg-purple-500 text-white;
+}
+
+.bubble-menu button.is-active:hover,
+.floating-menu button.is-active:hover {
+  @apply bg-purple-700;
+
+}

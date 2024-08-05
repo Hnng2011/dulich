@@ -22,10 +22,11 @@ interface TourInfo {
   price_after_discount: number
   price_before_discount?: number
   slot: number
-  standard: 'Luxury' | 'Standard'
+  standard: 'Luxury' | 'Premium' | 'Standard'
   detail: string
   tour_id: string
   // tag?: 'hot' | 'fav'
+  schedule: string
 }
 
 interface NewInfo {
@@ -38,10 +39,10 @@ interface NewInfo {
 interface Token {
   new_tokens: {
     role: string
-    access_token: string
-    refresh_token: string
+    accessToken: string
+    refreshToken: string
     user_id: string
-    access_token_expired_at: string
-    refresh_token_expired_at: string
+    accessTokenExpiresAt: string
+    refreshTokenExpiresAt: string
   }
 }

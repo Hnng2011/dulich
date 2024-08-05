@@ -42,9 +42,9 @@ export default function TourInfoAdmin({
                 <DropdownMenu>
                     <DropdownMenuTrigger className='rounded-full'><EllipsisVertical className='h-7 w-7 p-1' /></DropdownMenuTrigger>
                     <DropdownMenuContent>
-                        <DropdownMenuItem onClick={routeChange}><Pencil className='mr-2 h-4 w-4' /><span>Edit</span></DropdownMenuItem>
-                        <DropdownMenuItem onClick={routeChange}><Trash className='mr-2 h-4 w-4' /><span>Delete</span></DropdownMenuItem>
-                        <DropdownMenuItem onClick={routeChange}><Copy className='mr-2 h-4 w-4' /><span>Clone</span></DropdownMenuItem>
+                        <DropdownMenuItem onClick={routeChange}><Pencil className='mr-2 h-4 w-4' /><span>Chỉnh sửa</span></DropdownMenuItem>
+                        <DropdownMenuItem onClick={routeChange}><Trash className='mr-2 h-4 w-4' /><span>Xóa</span></DropdownMenuItem>
+                        <DropdownMenuItem onClick={routeChange}><Copy className='mr-2 h-4 w-4' /><span>Nhân bản</span></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
 

@@ -11,21 +11,13 @@ export async function POST(req: Request) {
       `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signin`,
       {
         email: username,
-        password,
+        password: password,
       },
     )
 
-    // const maxAgeInSeconds = Math.floor(
-    //   (new Date(response.data.new_tokens.access_token_expired_at).getTime() -
-    //     new Date().getTime()) /
-    //     1000,
-    // )
-
-    cookies().set('token', response.data.new_tokens.toString(), {
-      secure: true,
-      maxAge: new Date(
-        response.data.new_tokens.access_token_expired_at,
-      ).getTime(),
+    cookies().set('token', String(response.data.new_tokens.accessToken), {
+      secure: false,
+      maxAge: new Date(response.data.new_tokens.accessTokenExpiresAt).getTime(),
     })
 
     return Response.json(response.data)

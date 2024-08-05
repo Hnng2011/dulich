@@ -6,8 +6,6 @@ import { convertToLocalDate } from '@/lib/utils'
 import { formatPrice } from '@/lib/utils'
 import { Users, BadgePercent, Clock } from 'lucide-react'
 import Image from 'next/image'
-// import Hot from '../../../public/assets/img/tags/hot.png'
-// import Fav from '../../../public/assets/img/tags/fav.png'
 
 export default function TourInfo({
   tour,
