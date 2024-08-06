@@ -9,7 +9,7 @@ interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
 interface LanguageState {
   language: Locale
-  updateLanguage: (lang: LanguageType) => void
+  updateLanguage: (lang: Locale) => void
   setT: (trans: object) => void
   t: any
 }

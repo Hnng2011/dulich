@@ -50,7 +50,7 @@ export default function Header() {
     const process = useScroll();
     const { language, updateLanguage, t } = useLanguage();
 
-    const handleValueChange = useCallback((value: LanguageType) => {
+    const handleValueChange = useCallback((value: Locale) => {
         updateLanguage(value);
     }, [updateLanguage]);
 

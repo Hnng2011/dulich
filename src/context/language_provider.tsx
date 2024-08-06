@@ -6,7 +6,7 @@ import en from '../../public/locales/en/common.json'
 import vn from '../../public/locales/vn/common.json'
 
 
-const getCurrentLanguage = (): LanguageType => {
+const getCurrentLanguage = (): Locale => {
     if (typeof window !== 'undefined') {
         const storedLang = localStorage.getItem('domain_lang');
         if (!storedLang) {
@@ -14,7 +14,7 @@ const getCurrentLanguage = (): LanguageType => {
             return 'vn'
         }
 
-        return storedLang as LanguageType
+        return storedLang as Locale
     }
 
     return 'vn'
