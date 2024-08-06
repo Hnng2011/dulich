@@ -25,6 +25,7 @@ import US from '../../../public/assets/icon/us'
 import { Menu, X } from "lucide-react";
 import { HREFS } from "@/constant/navigation";
 import { Input } from "@/components/ui/input"
+import { Url } from "next/dist/shared/lib/router/router";
 
 type State = {
     menuOpen: boolean;
@@ -65,7 +66,7 @@ export default function Header() {
                                 {t && <Flex gap={8} className='h-full'>
                                     {
                                         Object.keys(t?.header.navigate).map((key, index) => (
-                                            <Link href={HREFS.header[key]} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'} whitespace-nowrap`}>{t.header.navigate[key]}</Link>
+                                            <Link href={HREFS.header[key] as Url} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'} whitespace-nowrap`}>{t.header.navigate[key]}</Link>
                                         ))
                                     }
                                 </Flex>
@@ -106,7 +107,7 @@ export default function Header() {
                                 <Flex gap={8} col className="h-full">
                                     {
                                         t && Object.keys(t.header.navigate).map((key, index) => (
-                                            <Link onClick={() => dispatch('TOGGLE_MENU')} href={HREFS.header[key] ?? ''} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'} whitespace-nowrap`}>{t.header.navigate[key]}</Link>
+                                            <Link onClick={() => dispatch('TOGGLE_MENU')} href={HREFS.header[key] as Url} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'} whitespace-nowrap`}>{t.header.navigate[key]}</Link>
                                         ))
                                     }
                                 </Flex>
