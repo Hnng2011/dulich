@@ -89,7 +89,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                 standard: data.standard,
                 start_date: new Date(data.start_date),
                 destination: data.destination,
-                schedule: data.schedule,
+                schedule: "Hello",
             })
         }
     }, [data]);
@@ -201,7 +201,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                                 name="destination"
                                 render={({ field }) => (
                                     <FormItem className='basis-1/2'>
-                                        <FormLabel className='text-white font-medium text-lg font-medium text-lg'>Điểm đến</FormLabel>
+                                        <FormLabel className='text-white text-lg font-medium'>Điểm đến</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
                                                 <SelectTrigger>
@@ -349,7 +349,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                         control={form.control}
                         name="schedule"
                         render={({ field }) => (
-                            <FormItem className='basis-1/2'>
+                            <FormItem className='basis-1/2 h-fit'>
                                 <FormLabel className='text-white font-medium text-lg'>Nội dung Tour</FormLabel>
                                 <FormControl>
                                     <Editor value={field.value} onChange={field.onChange} />

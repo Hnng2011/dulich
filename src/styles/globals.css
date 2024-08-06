@@ -140,12 +140,16 @@ body {
 }
 
 .tiptap {
-  @apply h-64 w-full border-2 rounded-md outline-none bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:border-black duration-100;
+  @apply min-h-64 w-full border-2 rounded-md outline-none bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:border-black duration-100;
 }
 
 .tiptap ul,
 .tiptap ol {
-  @apply px-4 py-0 my-5 ml-1;
+  @apply px-4 py-0 my-5 ml-1 list-disc;
+}
+
+.tiptap ol {
+  @apply px-4 py-0 my-5 ml-1 list-decimal;
 }
 
 .tiptap ul li p,
@@ -214,7 +218,7 @@ body {
 
 .bubble-menu,
 .floating-menu {
-  @apply bg-white border border-gray-200 rounded shadow p-1 flex w-fit;
+  @apply bg-white border border-gray-200 rounded shadow p-1 flex w-fit gap-1;
 }
 
 .bubble-menu button,
