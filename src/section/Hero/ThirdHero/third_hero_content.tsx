@@ -15,6 +15,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useGetTours } from '@/api/get_data'
 import { HREFS } from '@/constant/navigation'
+import { Url } from "next/dist/shared/lib/router/router";
 
 function ThirdHeroContent() {
   const [cardHover, setCardHover] = useState<number | null>(null)
@@ -41,7 +42,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={HREFS.header.tourid(`name=${tou.title}&id=${tou.tour_id}`)} className="">
+                <Link href={HREFS.tourid(`name=${tou.title}&id=${tou.tour_id}`) as Url} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
@@ -88,7 +89,7 @@ function ThirdHeroContent() {
                 onMouseMove={() => setCardHover(index + 1)}
                 onMouseLeave={() => setCardHover(null)}
               >
-                <Link href={HREFS.header.tourid(`name=${tou.title}&id=${tou.tour_id}`)} className="">
+                <Link href={HREFS.tourid(`name=${tou.title}&id=${tou.tour_id}`) as Url} className="">
                   <TourInfo
                     tour={tou}
                     isHover={!(cardHover && cardHover !== index + 1)}
