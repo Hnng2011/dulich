@@ -40,8 +40,8 @@ export function countDays(dateStart: Date, dateEnd: Date) {
 }
 
 export function formatPrice(price: number, currency: Currency) {
-  const locale: Locale = currency === 'VND' ? 'vi-VN' : 'en-US'
-  const config = {
+  const locale: Intl.LocalesArgument = currency === 'VND' ? 'vi-VN' : 'en-US'
+  const config: Intl.NumberFormatOptions = {
     style: 'currency',
     currency: currency,
     maximumFractionDigits: 0,

@@ -7,9 +7,8 @@ interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   isLineHeight?: boolean
 }
 
-type LanguageType = 'vn' | 'en'
 interface LanguageState {
-  language: LanguageType
+  language: Locale
   updateLanguage: (lang: LanguageType) => void
   setT: (trans: object) => void
   t: any
