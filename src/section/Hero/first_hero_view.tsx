@@ -1,5 +1,4 @@
 import * as React from 'react'
-import 'animate.css'
 import FirstHeroImage from './FirstHero/first_hero_image'
 import FirstHeroContent from './FirstHero/first_hero_content'
 

@@ -49,3 +49,10 @@ export function formatPrice(price: number, currency: Currency) {
 
   return new Intl.NumberFormat(locale, config).format(price * 1000)
 }
+
+export function extractUUID(url: string) {
+  const regex =
+    /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/
+  const match = url.match(regex)
+  return match ? match[0] : url
+}

@@ -30,13 +30,17 @@ export function UploadMedia() {
 
     function onSubmit(data: z.infer<typeof imageSchema>) {
         console.log(data)
-        console.log(localImages)
+
     }
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         const files: File[] = Array.from(e.target.files || []);
         setLocalImages(files)
     };
+
+    const uploadImage = () => {
+
+    }
 
     return (
         <Form {...form}>
@@ -49,7 +53,7 @@ export function UploadMedia() {
                             <FormControl className="max-w-sm">
                                 <Input accept="image/png, image/gif, image/jpeg" type="file" multiple onChange={handleImageChange} />
                             </FormControl>
-                            <Button type="submit" className="!m-0">Upload</Button>
+                            <Button disabled={localImages.length === 0} type="button" onClick={() => uploadImage()} className="!m-0">Upload</Button>
                             <FormMessage />
                         </FormItem>
                     )}

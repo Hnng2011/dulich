@@ -46,3 +46,8 @@ interface Token {
     refreshTokenExpiresAt: string
   }
 }
+
+interface ImageSrc {
+  name: string
+  image_link: string[]
+}

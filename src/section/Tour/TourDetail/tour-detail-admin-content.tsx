@@ -38,6 +38,7 @@ import Editor from '@/components/ui/editor'
 const formSchema = z.object({
     title: z.string({
     }).min(1, { message: "Title is required" }).max(50, { message: "Title is too long" }),
+    tour_id: z.string(),
     detail: z.string({
         required_error: "Detail is required",
     }).min(1, { message: "Detail is required" }).max(150, { message: "Detail is too long" }),
@@ -62,6 +63,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            tour_id: "",
             title: "",
             detail: "",
             image_link: [],
@@ -81,6 +83,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
         if (data) {
             form.reset({
                 title: data.title,
+                tour_id: data.tour_id,
                 detail: data.detail,
                 image_link: data.image_link,
                 price_before_discount: data.price_before_discount,

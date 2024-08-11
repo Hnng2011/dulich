@@ -37,7 +37,7 @@ interface LightboxProp extends HTMLProps<HTMLDivElement> {
 
 const Lightbox: React.FC<LightboxProp> = (props) => {
     const { open, requestClose } = useLightbox()
-    const lightboxClassname = cn('w-full h-full fixed inset-0 bg-mainbackground z-50 duration-300 bg-opacity-70 backdrop-blur', open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none');
+    const lightboxClassname = cn('w-full h-full fixed inset-0 bg-black z-50 duration-300 bg-opacity-70 backdrop-blur', open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none');
     const [api, setApi] = useState<CarouselApi>()
     const [current, setCurrent] = useState<number>(props?.current || 0)
 
@@ -58,7 +58,7 @@ const Lightbox: React.FC<LightboxProp> = (props) => {
             className={lightboxClassname}
         >
             <Container className='relative h-full w-full'>
-                <X onClick={requestClose} className='cursor-pointer h-8 w-8 right-6 top-4 absolute' />
+                <X onClick={requestClose} className='cursor-pointer h-8 w-8 right-12 top-12 absolute text-white' />
                 <Flex gap={4} justify='center' col className='h-full md:gap-8'>
                     {props.images &&
                         <>
@@ -67,12 +67,12 @@ const Lightbox: React.FC<LightboxProp> = (props) => {
                                 <CarouselContent>
                                     {props.images?.map((src, index) => (
                                         <CarouselItem key={index} onClick={() => setCurrent(index)} className='basis-1/4 h-24'>
-                                            <Image src={src} fill alt='tour info' className={`!static rounded ${current === index ? 'border-maintext' : 'border-transparent'}  border-2 duration-300 object-cover`} />
+                                            <Image src={src} fill alt='tour info' className={`!static rounded ${current === index ? 'border-maintext opacity-50' : 'border-transparent'}  border-2 duration-300 object-cover`} />
                                         </CarouselItem>
                                     ))}
                                 </CarouselContent>
-                                <CarouselNext className='bg-subtext text-white' />
-                                <CarouselPrevious className='bg-subtext text-white' />
+                                <CarouselNext className='bg-white text-black ' />
+                                <CarouselPrevious className='bg-white text-black' />
                             </Carousel>
                         </>
                     }

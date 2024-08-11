@@ -239,5 +239,4 @@ body {
 .bubble-menu button.is-active:hover,
 .floating-menu button.is-active:hover {
   @apply bg-purple-700;
-
 }
