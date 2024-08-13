@@ -92,7 +92,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                 standard: data.standard,
                 start_date: new Date(data.start_date),
                 destination: data.destination,
-                schedule: "Hello",
+                schedule: data.schedule,
             })
         }
     }, [data]);
@@ -369,4 +369,4 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
     )
 }
 
-export default TourDetailAdminContent
+export default React.memo(TourDetailAdminContent)

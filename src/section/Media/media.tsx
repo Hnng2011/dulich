@@ -4,10 +4,8 @@
 // import { createClient } from '@supabase/supabase-js'
 import { Divider } from '@/components/custom/divider'
 import { UploadMedia } from './upload-media'
-import Grid from '@/components/custom/grid'
 import { useGetImagesStorage } from '@/api/get_data'
 import ViewAllImages from './view-all-image'
-import { useState } from 'react'
 
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
 // const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
@@ -15,14 +13,13 @@ import { useState } from 'react'
 
 
 function Media() {
-    const { data } = useGetImagesStorage();
-    const [images, setImages] = useState<ImageSrc[] | undefined>(data)
+    const { data: images, mutate } = useGetImagesStorage();
 
     return (
         <div className='py-6'>
-            <UploadMedia />
+            <UploadMedia refreshData={mutate} />
             <Divider />
-            <ViewAllImages images={images} setImages={setImages} />
+            <ViewAllImages images={images} refreshData={mutate} />
         </div >
     )
 }

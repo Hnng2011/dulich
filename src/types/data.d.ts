@@ -49,5 +49,6 @@ interface Token {
 
 interface ImageSrc {
   name: string
-  image_link: string[]
+  image_link: string[] | string
+  option?: 'keep' | 'delete'
 }

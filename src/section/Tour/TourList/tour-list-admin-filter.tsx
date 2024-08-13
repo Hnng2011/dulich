@@ -1,7 +1,7 @@
 import React from 'react'
 import Flex from '@/components/custom/flex'
 import Link from 'next/link'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+// import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Plus } from 'lucide-react'
 import {
     Tooltip,
@@ -14,7 +14,7 @@ import {
 function TourListAdminFilter() {
     return (
         <Flex justify='start' gap={3} className='h-24'>
-            <Select>
+            {/* <Select>
                 <SelectTrigger icon className="w-[180px]">
                     <SelectValue placeholder="Sắp xếp" />
                 </SelectTrigger>
@@ -57,7 +57,7 @@ function TourListAdminFilter() {
                         <SelectItem value="pineapple">Pineapple</SelectItem>
                     </SelectGroup>
                 </SelectContent>
-            </Select>
+            </Select> */}
 
             <Flex justify='end' className='w-full'>
                 <TooltipProvider>

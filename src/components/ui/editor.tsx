@@ -10,6 +10,7 @@ import {
 } from '@tiptap/react'
 
 import StarterKit from '@tiptap/starter-kit'
+import React, { useEffect } from 'react';
 
 interface EditorProps {
     value: string;
@@ -19,11 +20,17 @@ interface EditorProps {
 const Editor = ({ value, onChange }: EditorProps) => {
     const editor = useEditor({
         extensions: [StarterKit],
-        content: value,
+        content: '',
         onUpdate: ({ editor }) => {
             onChange(editor.getHTML());
         },
     })
+
+    useEffect(() => {
+        if (editor && value !== editor.getHTML()) {
+            editor.commands.setContent(value);
+        }
+    }, [value, editor]);
 
     return (
         <>
@@ -188,4 +195,4 @@ const Editor = ({ value, onChange }: EditorProps) => {
     )
 }
 
-export default Editor
+export default React.memo(Editor)

@@ -1,6 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-"use client"
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -13,34 +12,90 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useState, ChangeEvent } from "react"
+import { useState, ChangeEvent, useMemo, useRef, useCallback } from "react"
+import { createClient } from '@supabase/supabase-js'
+import { usePathname } from "next/navigation"
+import { Icon } from '@iconify/react';
 
 const imageSchema = z.object({
-    images: z.array(z.string()).min(1, "Bạn phải chọn ít nhất một ảnh."),
+    images: z.array(z.object({ name: z.string(), image_link: z.string() })).min(1, "Bạn phải chọn ít nhất một ảnh."),
 });
 
-export function UploadMedia() {
-    const [localImages, setLocalImages] = useState<File[]>([])
+interface UploadMediaProps {
+    refreshData: () => void;
+}
+
+export function UploadMedia({ refreshData }: UploadMediaProps) {
+    const pathname = usePathname();
+    const [localImages, setLocalImages] = useState<File[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const supabaseUrl = useMemo(() => process.env.NEXT_PUBLIC_SUPABASE_URL as string, []);
+    const supabaseKey = useMemo(() => process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string, []);
+    const supabase = useMemo(() => createClient(supabaseUrl, supabaseKey), [supabaseUrl, supabaseKey]);
+
     const form = useForm<z.infer<typeof imageSchema>>({
         resolver: zodResolver(imageSchema),
         defaultValues: {
             images: [],
         },
-    })
+    });
 
-    function onSubmit(data: z.infer<typeof imageSchema>) {
-        console.log(data)
-
-    }
-
-    const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         const files: File[] = Array.from(e.target.files || []);
-        setLocalImages(files)
-    };
+        setLocalImages(files);
+    }, []);
 
-    const uploadImage = () => {
+    const uploadImage = useCallback(async () => {
+        setLoading(true);
+        const imgUrls: { name: string, image_link: string }[] = [];
 
-    }
+        for (const file of localImages) {
+            const { error } = await supabase.storage.from('Tour').upload(file.name, file, {
+                cacheControl: '3600',
+                upsert: true
+            });
+
+            if (error) {
+                console.error('Error uploading file:', error);
+                continue;
+            }
+
+            const { publicUrl } = supabase.storage.from('Tour').getPublicUrl(file.name).data;
+            if (publicUrl) {
+                imgUrls.push({ name: file.name, image_link: publicUrl });
+            } else {
+                console.error('Error getting public URL for file:', file.name);
+            }
+        }
+
+        if (imgUrls.length > 0) {
+            form.setValue("images", imgUrls);
+            setLocalImages([]);
+            form.handleSubmit(onSubmit)();
+        }
+
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+    }, [localImages]);
+
+    const onSubmit = useCallback(async (data: z.infer<typeof imageSchema>) => {
+        try {
+            await fetch(`${pathname}/api`, {
+                method: "POST",
+                body: JSON.stringify({ type: "upload", images: data.images }),
+            });
+
+            form.reset();
+            refreshData();
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setLoading(false);
+        }
+    }, [form.formState]);
 
     return (
         <Form {...form}>
@@ -51,14 +106,31 @@ export function UploadMedia() {
                     render={() => (
                         <FormItem className="flex items-center gap-2">
                             <FormControl className="max-w-sm">
-                                <Input accept="image/png, image/gif, image/jpeg" type="file" multiple onChange={handleImageChange} />
+                                <Input
+                                    ref={fileInputRef}
+                                    accept="image/png, image/gif, image/jpeg"
+                                    type="file"
+                                    multiple
+                                    onChange={handleImageChange}
+                                />
                             </FormControl>
-                            <Button disabled={localImages.length === 0} type="button" onClick={() => uploadImage()} className="!m-0">Upload</Button>
+                            <Button
+                                disabled={localImages.length < 1 || loading}
+                                type="button"
+                                onClick={uploadImage}
+                                className="!m-0"
+                            >
+                                {loading ? (
+                                    <Icon icon="line-md:loading-loop" width={25} height={25} />
+                                ) : (
+                                    'Upload'
+                                )}
+                            </Button>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
             </form>
         </Form>
-    )
+    );
 }

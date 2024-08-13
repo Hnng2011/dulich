@@ -12,7 +12,11 @@ import {
 
 import { convertToLocalDate } from '@/lib/utils'
 import { formatPrice } from '@/lib/utils'
-import { Users, BadgePercent, Clock, Pencil, Trash, Copy, EllipsisVertical } from 'lucide-react'
+import {
+    Users, BadgePercent, Clock, Pencil, Trash,
+    // Copy,
+    EllipsisVertical
+} from 'lucide-react'
 
 export default function TourInfoAdmin({
     tour
@@ -49,7 +53,7 @@ export default function TourInfoAdmin({
                     <DropdownMenuContent>
                         <DropdownMenuItem onClick={routeChange}><Pencil className='mr-2 h-4 w-4' /><span>Chỉnh sửa</span></DropdownMenuItem>
                         <DropdownMenuItem onClick={deleteTour}><Trash className='mr-2 h-4 w-4' /><span>Xóa</span></DropdownMenuItem>
-                        <DropdownMenuItem onClick={routeChange}><Copy className='mr-2 h-4 w-4' /><span>Nhân bản</span></DropdownMenuItem>
+                        {/* <DropdownMenuItem onClick={routeChange}><Copy className='mr-2 h-4 w-4' /><span>Nhân bản</span></DropdownMenuItem> */}
                     </DropdownMenuContent>
                 </DropdownMenu>
 

@@ -17,7 +17,7 @@ export default function middleware(req: NextRequest) {
       req.nextUrl.pathname === '/admin/login') &&
     token
   ) {
-    return NextResponse.redirect(new URL('/admin/dashboard/overview', req.url))
+    return NextResponse.redirect(new URL('/admin/dashboard/tour', req.url))
   } else if (
     req.nextUrl.pathname === '/login' ||
     req.nextUrl.pathname === '/dashboard'
