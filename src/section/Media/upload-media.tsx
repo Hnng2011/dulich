@@ -79,7 +79,7 @@ export function UploadMedia({ refreshData }: UploadMediaProps) {
         if (fileInputRef.current) {
             fileInputRef.current.value = "";
         }
-    }, [localImages]);
+    }, [localImages, supabase, form]);
 
     const onSubmit = useCallback(async (data: z.infer<typeof imageSchema>) => {
         try {
@@ -95,7 +95,7 @@ export function UploadMedia({ refreshData }: UploadMediaProps) {
         } finally {
             setLoading(false);
         }
-    }, [form.formState]);
+    }, [form]);
 
     return (
         <Form {...form}>
