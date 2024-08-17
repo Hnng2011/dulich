@@ -101,10 +101,10 @@ export default function Header() {
                     <Menu onClick={() => dispatch('TOGGLE_MENU')} className={`fixed bg-maintext text-mainbackground rounded right-6 top-6 h-8 w-8 z-30 lg:hidden duration-300 ${state.menuOpen && 'hidden'}`} />
                     <X onClick={() => dispatch('TOGGLE_MENU')} className={`fixed bg:subbackground text-maintext rounded right-6 top-6 h-8 w-8 z-30 lg:hidden duration-300 ${!state.menuOpen && 'hidden'}`} />
                     <Container className={`fixed h-full z-20 text-maintext text-base font-spin lg:hidden bg-subbackground duration-300 ${!state.menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                        <Flex gap={8} align="center" justify="center" col className="w-full h-full  z-20 relative">
-                            <Flex gap={8} align="center" col>
+                        <Flex gap={8} align="center" justify="center" isCol className="w-full h-full  z-20 relative">
+                            <Flex gap={8} align="center" isCol>
                                 <Logo className="h-32 w-32" />
-                                <Flex gap={8} col className="h-full">
+                                <Flex gap={8} isCol className="h-full">
                                     {
                                         t && Object.keys(t.header.navigate).map((key, index) => (
                                             <Link onClick={() => dispatch('TOGGLE_MENU')} href={HREFS.header[key] as Url} key={index} className={`${process ? 'hover:text-mainbackground' : 'hover:text-subtext'} whitespace-nowrap`}>{t.header.navigate[key]}</Link>
@@ -112,7 +112,7 @@ export default function Header() {
                                     }
                                 </Flex>
                             </Flex>
-                            <Flex col className="justify-end gap-8">
+                            <Flex isCol className="justify-end gap-8">
                                 <Select value={language} onValueChange={handleValueChange}>
                                     <SelectTrigger className="w-13 text-maintext">
                                         <SelectValue />

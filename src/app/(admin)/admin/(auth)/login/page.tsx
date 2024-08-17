@@ -63,7 +63,7 @@ export default function LoginForm() {
 
     return (
 
-        <Flex align="start" justify="center" col className="h-screen" >
+        <Flex align="start" justify="center" isCol className="h-screen" >
             <Container className="max-w-md relative p-12 rounded border-4 shadow">
                 <Container className="w-full h-full inset-0 absolute bg-subbackground bg-opacity-50 rounded background-image z-[-1]" />
                 <Form {...form}>

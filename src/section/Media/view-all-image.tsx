@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import Flex from "@/components/custom/flex"
 import { Icon } from "@iconify/react"
 import React from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 interface ViewAllImagesProps {
     images: ImageSrc[] | undefined;
@@ -92,9 +93,9 @@ const ViewAllImages = ({ images, refreshData }: ViewAllImagesProps) => {
                 </Flex>
             )}
 
-            <ScrollArea className="h-[78vh] my-6 pr-6">
+            <ScrollArea className="h-[73vh] my-6 pr-6">
                 <Grid template='col' count={6} gap={2}>
-                    {images?.map((img) => (
+                    {images ? images.map((img) => (
                         <div key={img.name} className='w-full relative aspect-square rounded overflow-hidden'>
                             {isDelete && (
                                 <label className="w-full h-full absolute top-0 left-0 z-10 cursor-pointer">
@@ -107,7 +108,9 @@ const ViewAllImages = ({ images, refreshData }: ViewAllImagesProps) => {
                             )}
                             <Image sizes="200" fill src={img.image_link[0]} alt={img.name} />
                         </div>
-                    ))}
+                    )) : Array.from({ length: 6 }, (_, index) =>
+                        <Skeleton key={index} className='w-full aspect-square' />
+                    )}
                 </Grid>
             </ScrollArea>
         </>

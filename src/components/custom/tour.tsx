@@ -44,7 +44,7 @@ export default function TourInfo({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Flex col gap={3} align="start">
+        <Flex isCol gap={3} align="start">
           <Flex className="w-full text-sm md:text-base">
             <Flex gap={1}>
               <Clock className='h-5' />

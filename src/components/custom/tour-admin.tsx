@@ -59,7 +59,7 @@ export default function TourInfoAdmin({
 
             </Flex>
             <CardContent className='p-0 mt-4'>
-                <Flex col gap={1} align="start">
+                <Flex isCol gap={1} align="start">
                     <Flex className="w-full text-sm">
                         <Flex gap={1}>
                             <Clock className='h-4' />

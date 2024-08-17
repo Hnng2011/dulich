@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import FourthdHeroContent from './FourthHero/fourth_hero_content'
 
 

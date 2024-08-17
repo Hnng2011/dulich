@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import React, { ReactNode, HTMLProps } from 'react'
 
 interface FlexProp extends HTMLProps<HTMLDivElement> {
-  col?: boolean
+  isCol?: boolean
   gap?: number
   justify?:
   | 'center'
@@ -17,7 +17,7 @@ interface FlexProp extends HTMLProps<HTMLDivElement> {
   children?: ReactNode,
 }
 
-const Flex: React.FC<FlexProp> = (props) => {
+const Flex = (props: FlexProp) => {
   const align = () => {
     switch (props.align) {
       case 'center':
@@ -58,7 +58,7 @@ const Flex: React.FC<FlexProp> = (props) => {
 
   const gap = props.gap && `gap-${props.gap}`
 
-  const column = props?.col === true && 'flex-col'
+  const column = props?.isCol === true && 'flex-col'
 
   const flexClassName = cn('flex', align(), justify(), gap, column, props.className)
 

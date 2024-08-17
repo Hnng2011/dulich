@@ -7,7 +7,7 @@ import { useGetTour } from '@/api/get_data'
 import { convertToLocalDate } from '@/lib/utils'
 import { formatPrice } from '@/lib/utils'
 import { Clock, MapPinned } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/context/language_provider'
 import { Divider } from '@/components/custom/divider'
 import {
@@ -19,6 +19,7 @@ import {
 import Image from 'next/image'
 import { Lightbox, useLightbox } from '@/components/custom/lightbox'
 import Autoplay from "embla-carousel-autoplay"
+import parse from 'html-react-parser';
 
 const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
     const [api, setApi] = useState<CarouselApi>()
@@ -50,7 +51,7 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
             <Lightbox images={data?.image_link} />
             <Flex align='start' className='mt-12'>
                 {data &&
-                    <Flex col align='start' className='gap-12 lg:gap-40 md:flex-row'>
+                    <Flex isCol align='start' className='gap-12 lg:gap-40 md:flex-row'>
                         <Container className='basis-1/2 px-0'>
                             <Image onClick={() => requestOpen()} src={data.image_link[current]} fill alt='tour info' className='!static aspect-video cursor-pointer' />
                             <Container className='h-4' />
@@ -65,7 +66,7 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
                             </Carousel>
                         </Container>
 
-                        <Flex col align='start' gap={4} className='basis-1/2 text-maintext'>
+                        <Flex isCol align='start' gap={4} className='basis-1/2 text-maintext'>
                             <h2 className='text-3xl lg:text-4xl font-black text-subtext'>{data.title}</h2>
                             <div className='text-sm lg:text-base text-maintext text-muted-foreground'>{data.detail}</div>
                             <Divider className='w-1/2' />
@@ -97,10 +98,17 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
                                 }
                             </Flex>
                             <div>( {t?.tour.detail.slot}: {data.slot} )</div>
-                            <Button className='bg-maintext'>{t?.tour.detail.action}</Button>
+                            {/* <Button className='bg-maintext'>{t?.tour.detail.action}</Button> */}
                         </Flex>
                     </Flex>}
             </Flex>
+            <Divider className='mt-24' />
+            <div className='my-10'>
+                <h2 className='mb-12 text-2xl font-bold text-subtext'>Chi tiết chuyến đi</h2>
+                <Flex isCol align='start' gap={2}>
+                    {parse(data?.schedule || "")}
+                </Flex>
+            </div>
         </>
     )
 }

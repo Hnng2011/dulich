@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Container from '@/components/custom/container'
@@ -19,7 +19,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Calendar } from "@/components/ui/calendar"
 import {
     Popover,
@@ -34,6 +33,9 @@ import { useGetTour } from '@/api/get_data'
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
 import Editor from '@/components/ui/editor'
+import SelectImage from '@/components/custom/select-image'
+import { useModal } from '@/components/custom/modal'
+import { Icon } from "@iconify/react"
 
 const formSchema = z.object({
     title: z.string({
@@ -57,7 +59,9 @@ const formSchema = z.object({
 
 
 const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const { data } = useGetTour(tour_id)
+    const { isOpen, openModal, closeModal } = useModal()
     const pathname = usePathname()
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -98,6 +102,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
     }, [data]);
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true)
         try {
             if (tour_id) {
                 await fetch(`${pathname}/api`, {
@@ -114,6 +119,8 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
         catch (e) {
             console.log(e)
         }
+
+        setIsLoading(false)
     }
 
     function handleRemove(url: string) {
@@ -124,7 +131,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
         <Container className='p-0 pr-10'>
             <Form {...form} >
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <Flex gap={8} col className='basis-1/2 min-h-[200px]'>
+                    <Flex gap={8} isCol className='basis-1/2 min-h-[200px]'>
                         <FormField
                             control={form.control}
                             name="title"
@@ -205,18 +212,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                                 render={({ field }) => (
                                     <FormItem className='basis-1/2'>
                                         <FormLabel className='text-white text-lg font-medium'>Điểm đến</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                            <FormControl>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Chọn điểm đến" />
-                                                </SelectTrigger>
-                                            </FormControl>
-                                            <SelectContent>
-                                                <SelectItem value="0">Đức</SelectItem>
-                                                <SelectItem value="1">Ý</SelectItem>
-                                                <SelectItem value="2">Nhật</SelectItem>
-                                            </SelectContent>
-                                        </Select>
+                                        <Input {...field} />
                                         <FormMessage />
                                     </FormItem>
                                 )}
@@ -275,7 +271,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                                     <FormItem className='basis-1/2'>
                                         <FormLabel className='text-white font-medium text-lg'>Số lượng khách</FormLabel>
                                         <FormControl>
-                                            <Input type='number' placeholder="0" {...field} value={field.value || undefined} onChange={e => field.onChange(Number(e.target.value))} />
+                                            <Input type='number' placeholder="0" {...field} value={field.value} onChange={e => field.onChange(Number(e.target.value))} />
                                         </FormControl>
                                         <FormDescription >
                                             {field.value} Khách
@@ -294,7 +290,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                                     <FormItem className='basis-1/2'>
                                         <FormLabel className='text-white font-medium text-lg'>Giá</FormLabel>
                                         <FormControl>
-                                            <Input type='number' placeholder="0" {...field} value={field.value || undefined} onChange={e => field.onChange(Number(e.target.value))} />
+                                            <Input type='number' placeholder="0" {...field} value={field.value} onChange={e => field.onChange(Number(e.target.value))} />
                                         </FormControl>
                                         <FormDescription >
                                             {field.value} VND
@@ -310,7 +306,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                                     <FormItem className='basis-1/2'>
                                         <FormLabel className='text-white font-medium text-lg'>Giá khuyến mãi</FormLabel>
                                         <FormControl>
-                                            <Input type='number' placeholder="0" {...field} value={field.value || undefined} onChange={e => field.onChange(Number(e.target.value))} />
+                                            <Input type='number' placeholder="0" {...field} value={field.value} onChange={e => field.onChange(Number(e.target.value))} />
                                         </FormControl>
                                         <FormDescription >
                                             {field.value} VND
@@ -325,22 +321,24 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                     <FormField
                         control={form.control}
                         name="image_link"
-                        render={() => (
+                        render={({ field }) => (
                             <FormItem className='w-full'>
                                 <FormLabel className='text-white font-medium text-lg'>Ảnh dại diện</FormLabel>
                                 <FormControl>
-
+                                    <SelectImage isOpen={isOpen} closeModal={closeModal} value={field.value} onChange={field.onChange} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
 
+                    <Button onClick={() => openModal()}>Select Images</Button>
+
                     <Grid template='col' count={6} gap={3} className='gap-2 w-full'>
                         {formValue.image_link?.map((url: string, idx: number) =>
                             <Container key={idx} className='relative w-full aspect-square rounded overflow-hidden'>
                                 <X onClick={() => handleRemove(url)} className='h-6 w-6 absolute p-1 right-1 top-1 z-10 rounded-full bg-slate-200 shadow cursor-pointer' />
-                                <Image alt="up-img" src={url} fill />
+                                <Image alt="up-img" src={url} fill sizes='200' />
                             </Container>
                         )}
                         {
@@ -362,7 +360,8 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
                         )}
                     />
 
-                    <Button type="submit">{data ? 'Cập nhật' : 'Tạo'}</Button>
+                    <Button disabled={isLoading} type="submit">{isLoading ?
+                        <Icon icon="line-md:loading-loop" width={25} height={25} /> : data ? 'Cập nhật' : 'Tạo'}</Button>
                 </form>
             </Form>
         </Container >
