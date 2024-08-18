@@ -59,7 +59,7 @@ const Lightbox: React.FC<LightboxProp> = (props) => {
         >
             <Container className='relative h-full w-full'>
                 <X onClick={requestClose} className='cursor-pointer h-8 w-8 right-12 top-12 absolute text-white' />
-                <Flex gap={4} justify='center' isCol className='h-full md:gap-8'>
+                <Flex gap={4} justify='center' iscol className='h-full md:gap-8'>
                     {props.images &&
                         <>
                             <Image src={props.images[current]} alt='light-box' fill className='!static !w-[82%] lg:w-full max-w-screen-md max-h-64 md:max-h-96 object-fill lg:object-cover' />

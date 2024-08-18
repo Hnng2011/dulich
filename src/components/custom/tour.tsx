@@ -17,7 +17,7 @@ export default function TourInfo({
 }) {
   return (
     <Card
-      className={`relative rounded-md overflow-hidden ${isHover ? '' : 'blur-sm'} duration-300`}
+      className={`relative rounded-md overflow-hidden ${isHover ? '' : 'opacity-70'} duration-300`}
     >
       <Image src={tour.image_link[0]} fill alt="test" className="max-h-72 md:max-h-64 w-full" />
       {/* {tour.tag === 'hot' ? (
@@ -44,7 +44,7 @@ export default function TourInfo({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Flex isCol gap={3} align="start">
+        <Flex iscol gap={3} align="start">
           <Flex className="w-full text-sm md:text-base">
             <Flex gap={1}>
               <Clock className='h-5' />

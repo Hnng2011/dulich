@@ -163,22 +163,30 @@ body {
 .tiptap h4,
 .tiptap h5,
 .tiptap h6 {
-  @apply leading-tight;
+  @apply leading-tight my-2;
 }
 
-.tiptap h1,
+/* .tiptap h1,
 .tiptap h2 {
   @apply mt-14 mb-6;
-}
+} */
 
-.tiptap h3,
+/* .tiptap h3,
 .tiptap h4,
 .tiptap h5,
 .tiptap h6 {
-  @apply mt-10;
+  @apply mt-2;
+} */
+
+.tiptap img {
+  @apply h-auto aspect-video my-6 max-w-md;
 }
 
-.tiptap h1 {
+.tiptap img.ProseMirror-selectednode {
+  @apply outline-2 border-purple-500;
+}
+
+.tiptap .tiptap h1 {
   @apply text-2xl;
 }
 
@@ -239,4 +247,16 @@ body {
 .bubble-menu button.is-active:hover,
 .floating-menu button.is-active:hover {
   @apply bg-purple-700;
+}
+
+.detail__content h1 {
+  @apply text-2xl;
+}
+
+.detail__content h2 {
+  @apply text-xl;
+}
+
+.detail__content h3 {
+  @apply text-lg;
 }

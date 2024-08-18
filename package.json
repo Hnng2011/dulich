@@ -23,6 +23,7 @@
     "@radix-ui/react-tooltip": "^1.1.1",
     "@supabase-cache-helpers/storage-swr": "^1.0.17",
     "@supabase/supabase-js": "^2.44.0",
+    "@tiptap/extension-image": "^2.6.4",
     "@tiptap/pm": "^2.5.8",
     "@tiptap/react": "^2.5.8",
     "@tiptap/starter-kit": "^2.5.8",

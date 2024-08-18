@@ -30,8 +30,9 @@ function SelectImage({ value, isOpen, closeModal, onChange }: { value: string[] 
     };
 
     const handleSelect = () => {
-        if (value) {
+        if (selectImages.length) {
             onChange(selectImages)
+            setSelectImages([])
         }
         closeModal()
     }

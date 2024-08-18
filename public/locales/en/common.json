@@ -3,9 +3,7 @@
     "navigate": {
       "home": "Home",
       "about": "About",
-      "tour": "Tour",
-      "news": "News",
-      "contact": "Contact"
+      "tour": "Tour"
     }
   },
   "tour": {

@@ -3,9 +3,7 @@
     "navigate": {
       "home": "Trang chủ",
       "about": "Về chúng tôi",
-      "tour": "Tour",
-      "news": "Tin tức",
-      "contact": "Liên hệ"
+      "tour": "Tour"
     }
   },
   "hero": {

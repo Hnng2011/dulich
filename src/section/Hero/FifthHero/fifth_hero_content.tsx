@@ -34,13 +34,13 @@ function FifthHeroContent() {
     <Container>
       <h2 className='uppercase text-2xl md:text-3xl font-black font-bitter text-center'>Tin khuyến mãi</h2>
       <Container className='h-12' />
-      <Flex isCol gap={6} align='start' className='md:flex-row'>
+      <Flex iscol gap={6} align='start' className='md:flex-row'>
         {news.map((inf, index) =>
-          <Flex isCol gap={6} align='start' key={index} className='w-full md:basis-1/3 h-full'>
+          <Flex iscol gap={6} align='start' key={index} className='w-full md:basis-1/3 h-full'>
             <div className='aspect-4/3 w-full relative'>
               <Image alt="news" src={inf.image_link[0]} fill />
             </div>
-            <Flex isCol gap={2}>
+            <Flex iscol gap={2}>
               <h3 className='font-semibold text-base md:text-lg line-clamp-2'>
                 {inf.title}
               </h3>

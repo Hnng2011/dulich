@@ -131,7 +131,7 @@ const TourDetailAdminContent = ({ tour_id }: { tour_id: string }) => {
         <Container className='p-0 pr-10'>
             <Form {...form} >
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <Flex gap={8} isCol className='basis-1/2 min-h-[200px]'>
+                    <Flex gap={8} iscol className='basis-1/2 min-h-[200px]'>
                         <FormField
                             control={form.control}
                             name="title"

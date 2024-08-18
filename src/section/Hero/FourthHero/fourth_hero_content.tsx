@@ -31,7 +31,7 @@ function FourthdHeroContent() {
       <Container className="h-full py-12 lg:py-20">
         <Flex
           justify="center"
-          isCol
+          iscol
           className="p-2 xl:p-0 bg-gray-300 backdrop-blur bg-opacity-10 h-full rounded-3xl shadow"
         >
           <h2 className="text-2xl md:text-3xl font-black font-bitter uppercase">
@@ -45,7 +45,7 @@ function FourthdHeroContent() {
             <CarouselContent>
               {rating.map((rate, index) => (
                 <CarouselItem key={index} className="">
-                  <Flex isCol gap={6} justify="center">
+                  <Flex iscol gap={6} justify="center">
                     <blockquote className="text-sm md:text-base text-center w-2/3 italic">
                       "{rate.rate}"
                     </blockquote>

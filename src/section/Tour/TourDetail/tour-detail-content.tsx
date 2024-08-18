@@ -51,7 +51,7 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
             <Lightbox images={data?.image_link} />
             <Flex align='start' className='mt-12'>
                 {data &&
-                    <Flex isCol align='start' className='gap-12 lg:gap-40 md:flex-row'>
+                    <Flex iscol align='start' className='gap-12 lg:gap-40 md:flex-row'>
                         <Container className='basis-1/2 px-0'>
                             <Image onClick={() => requestOpen()} src={data.image_link[current]} fill alt='tour info' className='!static aspect-video cursor-pointer' />
                             <Container className='h-4' />
@@ -66,7 +66,7 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
                             </Carousel>
                         </Container>
 
-                        <Flex isCol align='start' gap={4} className='basis-1/2 text-maintext'>
+                        <Flex iscol align='start' gap={4} className='basis-1/2 text-maintext'>
                             <h2 className='text-3xl lg:text-4xl font-black text-subtext'>{data.title}</h2>
                             <div className='text-sm lg:text-base text-maintext text-muted-foreground'>{data.detail}</div>
                             <Divider className='w-1/2' />
@@ -105,7 +105,7 @@ const TourDetailContent = ({ tour_id }: { tour_id: string }) => {
             <Divider className='mt-24' />
             <div className='my-10'>
                 <h2 className='mb-12 text-2xl font-bold text-subtext'>Chi tiết chuyến đi</h2>
-                <Flex isCol align='start' gap={2}>
+                <Flex iscol align='start' gap={4} className='detail__content'>
                     {parse(data?.schedule || "")}
                 </Flex>
             </div>

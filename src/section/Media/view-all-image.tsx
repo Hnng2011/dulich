@@ -67,7 +67,8 @@ const ViewAllImages = ({ images, refreshData }: ViewAllImagesProps) => {
                     onClick={() => setDelete(true)}
                     className="bg-amber-500 hover:bg-amber-600"
                 >
-                    Delete Images
+                    Xóa ảnh
+                    <Icon icon="gravity-ui:trash-bin" width={20} height={20} className="ml-2" />
                 </Button>
             )}
             {images && isDelete && (
@@ -80,7 +81,10 @@ const ViewAllImages = ({ images, refreshData }: ViewAllImagesProps) => {
                         {loading ? (
                             <Icon icon="line-md:loading-loop" width={25} height={25} />
                         ) : (
-                            "Delete"
+                            <>
+                                Xác nhận xóa
+                                <Icon icon="line-md:confirm-circle" width={20} height={20} className="ml-2" />
+                            </>
                         )}
                     </Button>
                     <Button
@@ -88,7 +92,8 @@ const ViewAllImages = ({ images, refreshData }: ViewAllImagesProps) => {
                         onClick={resetDeleteState}
                         className="bg-transparent border-zinc-800 text-zinc-800 hover:bg-zinc-800 hover:text-white"
                     >
-                        Cancel
+                        Hủy
+                        <Icon icon="ic:baseline-cancel" width={20} height={20} className="ml-2" />
                     </Button>
                 </Flex>
             )}

@@ -8,9 +8,11 @@ import {
     EditorContent,
     FloatingMenu,
 } from '@tiptap/react'
+import Image from '@tiptap/extension-image'
 
 import StarterKit from '@tiptap/starter-kit'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import SelectImage from '../custom/select-image';
 
 interface EditorProps {
     value: string;
@@ -18,8 +20,10 @@ interface EditorProps {
 }
 
 const Editor = ({ value, onChange }: EditorProps) => {
+    const [imgSelect, setImgSelect] = useState<string[]>([])
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
     const editor = useEditor({
-        extensions: [StarterKit],
+        extensions: [StarterKit, Image],
         content: '',
         onUpdate: ({ editor }) => {
             onChange(editor.getHTML());
@@ -32,6 +36,17 @@ const Editor = ({ value, onChange }: EditorProps) => {
             editor.commands.setContent(value);
         }
     }, [value, editor]);
+
+
+    useEffect(() => {
+        if (!isOpenModal && Boolean(imgSelect.length)) {
+            if (editor)
+
+                for (const url of imgSelect) {
+                    editor.chain().focus().setImage({ src: url }).run();
+                }
+        }
+    }, [isOpenModal, imgSelect, editor]);
 
     return (
         <>
@@ -187,8 +202,16 @@ const Editor = ({ value, onChange }: EditorProps) => {
                 >
                     <Icon icon="bi:quote" width={24} height={24} />
                 </button>
+                <button
+                    type='button'
+                    onClick={() => setIsOpenModal(true)}
+                >
+                    <Icon icon="material-symbols:image-outline" width={24} height={24} />
+                </button>
             </FloatingMenu>
             }
+
+            <SelectImage key={'editor'} value={undefined} isOpen={isOpenModal} closeModal={() => setIsOpenModal(false)} onChange={setImgSelect} />
 
             <EditorContent editor={editor} />
         </>

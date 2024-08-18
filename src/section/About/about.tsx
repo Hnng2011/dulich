@@ -37,7 +37,7 @@ export default function About() {
     return (
         <div className='w-full h-full box-content'>
             <Container className='pb-12 pt-6' >
-                <Flex isCol className='pb-12'>
+                <Flex iscol className='pb-12'>
                     <h1 className='text-2xl md:text-3xl font-black font-bitter mb-8'>Dịch vụ Du lịch và Lữ hành</h1>
                     <p className='mb-4 text-justify normal-case'>
                         Chào mừng đến với dịch vụ du lịch và lữ hành của chúng tôi, nơi bạn có thể khám phá những hành trình đầy màu sắc và trải nghiệm những kỳ quan tuyệt vời của thế giới. Tại đây, chúng tôi cung cấp một loạt các tour du lịch và chương trình lữ hành đa dạng, từ những điểm đến phổ biến nhất đến những nơi ít người biết đến nhưng không kém phần thú vị.

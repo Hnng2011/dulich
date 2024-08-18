@@ -4,7 +4,7 @@ import Container from '@/components/custom/container'
 
 const title = [
   {
-    one: 'Bán tour số 1 việt name',
+    one: 'Bán tour số 1 Việt Nam',
     two: 'Ứng dụng công nghệ mới nhất',
   },
   {
@@ -20,12 +20,12 @@ const title = [
 function FirstHeroContent() {
   return (
     <Container>
-      <Flex isCol gap={6} align='start' className="h-full py-6 md:flex-wrap xl:items-center md:flex-row ">
+      <Flex iscol gap={6} align='start' className="h-full py-6 md:flex-wrap xl:items-center md:flex-row ">
         {title.map((tit, index) => (
           <Flex key={index} className="gap-6 md:gap-2">
             <div className="text-4xl xl:text-6xl font-black font-bitter text-subtext">{`0${index + 1}`}</div>
             <div className="text-4xl xl:text-6xl text-muted-foreground">&gt;</div>
-            <Flex isCol className="!items-start">
+            <Flex iscol className="!items-start">
               <div className="text-base xl:text-xl">{tit.one}</div>
               <div className="text-base xl:text-xl text-muted-foreground">{tit.two}</div>
             </Flex>
